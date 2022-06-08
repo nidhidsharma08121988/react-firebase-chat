@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import 'firebase/firestore'
+import 'firebase/auth'
+import 'firebase/analytics'
+import React from 'react'
+import firebase, {initializeApp} from 'firebase/app'
+import {getAnalytics} from 'firebase/analytics'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {useAuthState} from 'react-firebase-hooks/auth'
+import {useCollectionData} from 'react-firebase-hooks/firestore'
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyAWn5a6SUM0dDrrjOE18eYsa6kzr3S9EbA',
+  authDomain: 'my-awesome-react-chat-app.firebaseapp.com',
+  projectId: 'my-awesome-react-chat-app',
+  storageBucket: 'my-awesome-react-chat-app.appspot.com',
+  messagingSenderId: '280483083181',
+  appId: '1:280483083181:web:44a1c7077b18c59412a724',
+  measurementId: 'G-L6S3BPEH48',
 }
 
-export default App;
+// Initialize Firebase
+const app = initializeApp(firebaseConfig)
+const analytics = getAnalytics(app)
+
+
+
+const App = () => {
+  return <div>Hey</div>
+}
+
+export default App
