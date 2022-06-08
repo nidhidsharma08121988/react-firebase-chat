@@ -1,15 +1,14 @@
 //firebase SDK
 import 'firebase/firestore'
-import 'firebase/auth'
-import 'firebase/analytics'
-import { firebase, initializeApp } from 'firebase/app'
+import { initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
 import { getAnalytics } from 'firebase/analytics'
 //Firebase Hooks
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 import ChatRoom from './components/ChatRoom'
-import SignInPage from './components/SignInPage'
+import SignUpPage from './components/SignUpPage'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAWn5a6SUM0dDrrjOE18eYsa6kzr3S9EbA',
@@ -25,7 +24,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const analytics = getAnalytics(app)
 
-const auth = firebase.auth()
+const auth = getAuth()
 
 const App = () => {
   const [user] = useAuthState(auth)
@@ -35,7 +34,9 @@ const App = () => {
       <header>
         <h1>ChitChat</h1>
       </header>
-      <section>{user ? <ChatRoom auth /> : <SignInPage auth />}</section>
+      <section>
+        {user ? <ChatRoom app auth /> : <SignUpPage app auth />}
+      </section>
     </div>
   )
 }
