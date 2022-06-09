@@ -14,28 +14,34 @@ const SignUpPage = ({ auth }) => {
       )
       console.log('User created', userCredential)
     } catch (error) {
-      console.log('In error')
+      console.log('In error', error.message)
     }
   }
   return (
     <div>
-      <form>
+      <div>
         <label htmlFor='email'>
+          Email:
+          <br />
           <input
             id='email'
             type='email'
             placeholder='Email Address'
+            name='email'
             value={email}
             onChange={e => setEmail(e.target.value)}
             required
           />
         </label>
         <label htmlFor='password'>
+          Password:
+          <br />
           <input
             id='password'
             type='password'
             placeholder='Password'
             value={password}
+            name='password'
             onChange={e => setPassword(e.target.value)}
             minLength={6}
             required
@@ -44,10 +50,10 @@ const SignUpPage = ({ auth }) => {
         <button type='submit' onClick={signUp}>
           Sign up
         </button>
-      </form>
+      </div>
       <div>
-        <div>or</div>
-        <button>SignUp using google</button>
+        <div>Or</div>
+        <button>Sign Up using google</button>
       </div>
     </div>
   )

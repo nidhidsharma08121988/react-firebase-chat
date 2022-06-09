@@ -9,6 +9,7 @@ import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 import ChatRoom from './components/ChatRoom'
 import SignUpPage from './components/SignUpPage'
+import SignOutPage from './components/SignOutPage'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAWn5a6SUM0dDrrjOE18eYsa6kzr3S9EbA',
@@ -24,6 +25,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const analytics = getAnalytics(app)
 
+//very important step that keeps track of whether user is authenticated
 const auth = getAuth()
 
 const App = () => {
@@ -33,9 +35,14 @@ const App = () => {
     <div>
       <header>
         <h1>ChitChat</h1>
+        {user ? <SignOutPage /> : <div>Hey Login to use the chatroom</div>}
       </header>
       <section>
-        {user ? <ChatRoom app auth /> : <SignUpPage app auth />}
+        {user ? (
+          <ChatRoom auth={auth} user={user} />
+        ) : (
+          <SignUpPage auth={auth} />
+        )}
       </section>
     </div>
   )
