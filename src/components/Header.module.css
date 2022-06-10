@@ -1,0 +1,20 @@
+.headerComponentContainer {
+  position: fixed;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 50px;
+  margin: 0px;
+  box-shadow: 1px 3px 3px lightgrey;
+}
+
+.title {
+  color: peru;
+  padding-left: 1rem;
+}
+.userLogInOutArea {
+  padding-right: 1rem;
+}

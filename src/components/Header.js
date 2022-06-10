@@ -1,14 +1,13 @@
 import SignOutButton from './SignOutPage'
+import styles from './Header.module.css'
 
 const Header = ({ user, auth }) => {
   return (
-    <div>
-      <h1>ChitChat</h1>
-      {user ? (
-        <SignOutButton auth={auth} />
-      ) : (
-        <div>Hey Login below to use the chatroom</div>
-      )}
+    <div className={styles.headerComponentContainer}>
+      <h1 className={styles.title}>ChitChat</h1>
+      <div className={styles.userLogInOutArea}>
+        {user ? <SignOutButton auth={auth} /> : <div>Login or Register</div>}
+      </div>
     </div>
   )
 }

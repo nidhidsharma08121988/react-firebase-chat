@@ -1,5 +1,4 @@
 //firebase SDK
-import 'firebase/firestore'
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 import { getAnalytics } from 'firebase/analytics'
@@ -7,6 +6,7 @@ import { getAnalytics } from 'firebase/analytics'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 
+import styles from './App.module.css'
 import ChatRoom from './components/ChatRoom'
 import SignUpPage from './components/SignUpPage'
 import SignInPage from './components/SignInPage'
@@ -33,21 +33,21 @@ const App = () => {
   const [user] = useAuthState(auth)
 
   return (
-    <div>
+    <div className={styles.app}>
       <Header user={user} auth={auth} />
-      <section>
+      <div className={styles.scrollableArea}>
         {user ? (
           <ChatRoom auth={auth} user={user} />
         ) : (
-          <>
+          <div>
             <SignInPage auth={auth} />
             <hr />
             <h5>New User?</h5>
             <h3>Sign Up</h3>
             <SignUpPage auth={auth} />
-          </>
+          </div>
         )}
-      </section>
+      </div>
     </div>
   )
 }
