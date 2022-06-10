@@ -21,7 +21,7 @@ const SignUpPage = ({ auth }) => {
   }
   return (
     <div>
-      <div>
+      <div className='signup-container'>
         <label htmlFor='email'>
           Email:
           <br />
@@ -35,6 +35,7 @@ const SignUpPage = ({ auth }) => {
             required
           />
         </label>
+        <br />
         <label htmlFor='password'>
           Password:
           <br />
@@ -49,6 +50,7 @@ const SignUpPage = ({ auth }) => {
             required
           />
         </label>
+        <br />
         <button type='submit' onClick={signUp}>
           Sign up
         </button>
