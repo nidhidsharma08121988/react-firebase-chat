@@ -1,8 +1,23 @@
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import React, { useState } from 'react'
 
-const SignInPage = () => {
+const SignInPage = ({ auth }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const signInUser = async e => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      )
+      setEmail('')
+      setPassword('')
+      console.log('User logged in', userCredential.user)
+    } catch (error) {
+      console.log('In error', error.message)
+    }
+  }
   return (
     <div>
       <div className='signup-container'>
@@ -35,7 +50,7 @@ const SignInPage = () => {
           />
         </label>
         <br />
-        <button type='submit' onClick={signUp}>
+        <button type='submit' onClick={signInUser}>
           Sign In
         </button>
       </div>
