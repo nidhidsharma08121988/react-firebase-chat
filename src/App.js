@@ -35,7 +35,11 @@ const App = () => {
     <div>
       <header>
         <h1>ChitChat</h1>
-        {user ? <SignOutPage /> : <div>Hey Login to use the chatroom</div>}
+        {user ? (
+          <SignOutPage auth={auth} />
+        ) : (
+          <div>Hey Login to use the chatroom</div>
+        )}
       </header>
       <section>
         {user ? (
