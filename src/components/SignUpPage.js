@@ -12,6 +12,8 @@ const SignUpPage = ({ auth }) => {
         email,
         password
       )
+      setEmail('')
+      setPassword('')
       console.log('User created', userCredential)
     } catch (error) {
       console.log('In error', error.message)
