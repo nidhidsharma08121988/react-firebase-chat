@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 const SignUpPage = ({ auth }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const signUp = async () => {
+  const signUp = async e => {
     console.log('in signup')
     try {
       const userCredential = await createUserWithEmailAndPassword(
