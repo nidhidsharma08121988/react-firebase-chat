@@ -21,11 +21,11 @@ const SignInPage = ({ auth }) => {
   return (
     <div>
       <div className='signup-container'>
-        <label htmlFor='email'>
+        <label htmlFor='emailSignIn'>
           Email:
           <br />
           <input
-            id='email'
+            id='emailSignIn'
             type='email'
             placeholder='Email Address'
             name='email'
@@ -35,11 +35,11 @@ const SignInPage = ({ auth }) => {
           />
         </label>
         <br />
-        <label htmlFor='password'>
+        <label htmlFor='passwordSignIn'>
           Password:
           <br />
           <input
-            id='password'
+            id='passwordSignIn'
             type='password'
             placeholder='Password'
             value={password}
