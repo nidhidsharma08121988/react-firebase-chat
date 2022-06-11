@@ -4,7 +4,11 @@ import styles from './Header.module.css'
 const Header = ({ user, auth }) => {
   return (
     <div className={styles.headerComponentContainer}>
-      <h1 className={styles.title}>ChitChat</h1>
+      <div className={styles.titleIcon}>
+        <i className={`fa-solid fa-comments ${styles.logo}`} />
+        <h2 className={styles.title}>ChitChat</h2>
+      </div>
+
       <div className={styles.userLogInOutArea}>
         {user ? (
           <SignOutButton auth={auth} />

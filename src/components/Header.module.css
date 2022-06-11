@@ -8,16 +8,27 @@
   align-items: center;
   max-height: 50px;
   margin: 0px;
-  box-shadow: 1px 3px 3px var(--shadow-color);
 }
-
-.title {
-  color: var(--core-theme-color);
+.titleIcon {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
   padding-left: 1rem;
 }
+.logo {
+  color: var(--core-theme-color);
+  margin-right: 1rem;
+  font-size: 3rem;
+}
+.title {
+  color: var(--core-theme-color);
+}
+
 .userLogInOutArea {
   padding-right: 1rem;
 }
+
 .signInButton {
   border-radius: 20px;
   background-color: white;
@@ -27,6 +38,7 @@
   color: var(--core-theme-color);
   margin: 0 10px;
 }
+
 .signUpButton {
   border-radius: 20px;
   background-color: var(--core-theme-color);
@@ -35,6 +47,7 @@
   cursor: pointer;
   color: white;
 }
+
 .signInButton:hover,
 .signUpButton:hover {
   opacity: 0.6;
