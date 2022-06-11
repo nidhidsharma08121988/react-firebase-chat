@@ -5,10 +5,12 @@
   flex-direction: column;
 }
 
-.scrollableArea {
+.section {
   display: flex;
   flex-direction: column;
   position: relative;
+  z-index: -1;
   top: 70px;
+  width: 100%;
   max-width: 100%;
 }

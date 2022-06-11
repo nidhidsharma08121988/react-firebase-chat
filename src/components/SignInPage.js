@@ -1,7 +1,8 @@
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import React, { useState } from 'react'
+import { auth } from '../App'
 
-const SignInPage = ({ auth }) => {
+const SignInPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const signInUser = async e => {

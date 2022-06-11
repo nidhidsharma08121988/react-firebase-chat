@@ -6,11 +6,14 @@ import { getAnalytics } from 'firebase/analytics'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
 import styles from './App.module.css'
 import ChatRoom from './components/ChatRoom'
 import SignUpPage from './components/SignUpPage'
 import SignInPage from './components/SignInPage'
 import Header from './components/Header'
+import WelcomePage from './components/WelcomePage'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAWn5a6SUM0dDrrjOE18eYsa6kzr3S9EbA',
@@ -27,7 +30,8 @@ const app = initializeApp(firebaseConfig)
 const analytics = getAnalytics(app)
 
 //very important step that keeps track of whether user is authenticated
-const auth = getAuth()
+
+export const auth = getAuth()
 
 const App = () => {
   const [user] = useAuthState(auth)
@@ -35,17 +39,25 @@ const App = () => {
   return (
     <div className={styles.app}>
       <Header user={user} auth={auth} />
-      <div className={styles.scrollableArea}>
+      <div className={styles.section}>
         {user ? (
           <ChatRoom auth={auth} user={user} />
         ) : (
-          <div>
-            <SignInPage auth={auth} />
-            <hr />
-            <h5>New User?</h5>
-            <h3>Sign Up</h3>
-            <SignUpPage auth={auth} />
-          </div>
+          <Router>
+            <Routes>
+              <Route exact path='/' element={<WelcomePage />} />
+              <Route
+                exact
+                path='/signIn'
+                element={<SignInPage auth={auth} />}
+              />
+              <Route
+                exact
+                path='/signUp'
+                element={<SignUpPage auth={auth} />}
+              />
+            </Routes>
+          </Router>
         )}
       </div>
     </div>

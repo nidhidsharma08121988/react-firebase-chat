@@ -1,7 +1,8 @@
 import React from 'react'
 import { signOut } from 'firebase/auth'
+import { auth } from '../App'
 
-const SignOutPage = ({ auth }) => {
+const SignOutPage = () => {
   const handleClick = async e => {
     try {
       await signOut(auth)
