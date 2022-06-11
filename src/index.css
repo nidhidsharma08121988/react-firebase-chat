@@ -4,3 +4,8 @@
     Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   letter-spacing: 0.5px;
 }
+
+:root {
+  --core-theme-color: peru;
+  --shadow-color: lightgray;
+}

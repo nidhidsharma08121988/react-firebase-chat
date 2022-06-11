@@ -6,7 +6,14 @@ const Header = ({ user, auth }) => {
     <div className={styles.headerComponentContainer}>
       <h1 className={styles.title}>ChitChat</h1>
       <div className={styles.userLogInOutArea}>
-        {user ? <SignOutButton auth={auth} /> : <div>Login or Register</div>}
+        {user ? (
+          <SignOutButton auth={auth} />
+        ) : (
+          <>
+            <button className={styles.signUpButton}> Register </button>
+            <button className={styles.signInButton}> LogIn </button>
+          </>
+        )}
       </div>
     </div>
   )
