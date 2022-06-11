@@ -37,13 +37,13 @@ const App = () => {
   const [user] = useAuthState(auth)
 
   return (
-    <div className={styles.app}>
-      <Header user={user} auth={auth} />
-      <div className={styles.section}>
-        {user ? (
-          <ChatRoom auth={auth} user={user} />
-        ) : (
-          <Router>
+    <Router>
+      <div className={styles.app}>
+        <Header user={user} auth={auth} />
+        <div className={styles.section}>
+          {user ? (
+            <ChatRoom auth={auth} user={user} />
+          ) : (
             <Routes>
               <Route exact path='/' element={<WelcomePage />} />
               <Route
@@ -57,10 +57,10 @@ const App = () => {
                 element={<SignUpPage auth={auth} />}
               />
             </Routes>
-          </Router>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+    </Router>
   )
 }
 

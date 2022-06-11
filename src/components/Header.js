@@ -1,21 +1,28 @@
 import SignOutButton from './SignOutPage'
 import styles from './Header.module.css'
+import { Link } from 'react-router-dom'
 
 const Header = ({ user, auth }) => {
   return (
     <div className={styles.headerComponentContainer}>
-      <div className={styles.titleIcon}>
+      <Link className={styles.titleIcon} to='/'>
         <i className={`fa-solid fa-comments ${styles.logo}`} />
         <h2 className={styles.title}>ChitChat</h2>
-      </div>
+      </Link>
 
       <div className={styles.userLogInOutArea}>
         {user ? (
           <SignOutButton auth={auth} />
         ) : (
           <>
-            <button className={styles.signUpButton}> Register </button>
-            <button className={styles.signInButton}> LogIn </button>
+            <Link className={styles.signUpButton} to='/signUp'>
+              {' '}
+              Register{' '}
+            </Link>
+            <Link className={styles.signInButton} to='/signIn'>
+              {' '}
+              LogIn{' '}
+            </Link>
           </>
         )}
       </div>
