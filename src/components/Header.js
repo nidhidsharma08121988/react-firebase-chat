@@ -1,4 +1,4 @@
-import SignOutButton from './SignOutPage'
+import SignOutButton from './SignOutButton'
 import styles from './Header.module.css'
 import { Link } from 'react-router-dom'
 
@@ -16,12 +16,10 @@ const Header = ({ user, auth }) => {
         ) : (
           <>
             <Link className={styles.signUpButton} to='/signUp'>
-              {' '}
-              Register{' '}
+              Register
             </Link>
             <Link className={styles.signInButton} to='/signIn'>
-              {' '}
-              LogIn{' '}
+              LogIn
             </Link>
           </>
         )}
