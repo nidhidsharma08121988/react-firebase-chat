@@ -1,5 +1,5 @@
 .signOut {
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   background-color: white;
   border: 1px solid var(--core-theme-color);
   padding: 10px 12px;

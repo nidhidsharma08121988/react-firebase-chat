@@ -4,6 +4,7 @@
   height: 90%;
   flex-direction: column;
   align-self: center;
+  border-radius: var(--border-radius);
   border: 1px solid lightgray;
   padding: 1rem;
 }
@@ -20,14 +21,14 @@
 .input {
   width: 80%;
   outline: none;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   border: 1px solid lightgray;
   padding: 6px 8px;
 }
 .submit {
   align-self: center;
   width: 50%;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   background-color: white;
   border: 1px solid var(--core-theme-color);
   padding: 6px 8px;

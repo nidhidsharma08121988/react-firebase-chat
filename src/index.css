@@ -8,4 +8,5 @@
 :root {
   --core-theme-color: teal;
   --shadow-color: lightgray;
+  --border-radius: 10px;
 }
