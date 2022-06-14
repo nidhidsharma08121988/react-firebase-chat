@@ -1,6 +1,7 @@
 import React from 'react'
 import { signOut } from 'firebase/auth'
 import { auth } from '../App'
+import styles from './SignOutButton.module.css'
 
 const SignOutButton = () => {
   const handleClick = async e => {
@@ -11,7 +12,11 @@ const SignOutButton = () => {
       console.log('in error', error.message)
     }
   }
-  return <button onClick={handleClick}>Sign Out</button>
+  return (
+    <button className={styles.signOut} onClick={handleClick}>
+      Sign Out
+    </button>
+  )
 }
 
 export default SignOutButton
