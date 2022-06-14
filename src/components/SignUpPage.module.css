@@ -1,4 +1,4 @@
-.signInContainer {
+.signUpContainer {
   display: flex;
   width: 50%;
   height: 90%;
@@ -32,11 +32,11 @@
   height: 80%;
   max-height: 80%;
 
-  background-color: white;
-  color: var(--core-theme-color);
+  color: white;
+  background-color: var(--core-theme-color);
 
   border-radius: var(--border-radius);
-  border: 1px solid var(--core-theme-color);
+  border: none;
 
   cursor: pointer;
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../App'
+import styles from './SignUpPage.module.css'
 
 const SignUpPage = () => {
   const [email, setEmail] = useState('')
@@ -21,14 +22,13 @@ const SignUpPage = () => {
     }
   }
   return (
-    <div className='signup-container'>
-      Register
-      <br />
-      <label htmlFor='email'>
-        Email:
-        <br />
+    <div className={styles.signUpContainer}>
+      <h3 className={styles.heading}>Register</h3>
+      <div className={styles.inputContainer}>
+        <label htmlFor='email'>Email:</label>
         <input
           id='email'
+          className={styles.input}
           type='email'
           placeholder='Email Address'
           name='email'
@@ -36,13 +36,12 @@ const SignUpPage = () => {
           onChange={e => setEmail(e.target.value)}
           required
         />
-      </label>
-      <br />
-      <label htmlFor='password'>
-        Password:
-        <br />
+      </div>
+      <div className={styles.inputContainer}>
+        <label htmlFor='password'>Password:</label>
         <input
           id='password'
+          className={styles.input}
           type='password'
           placeholder='Password'
           value={password}
@@ -51,9 +50,8 @@ const SignUpPage = () => {
           minLength={6}
           required
         />
-      </label>
-      <br />
-      <button type='submit' onClick={signUp}>
+      </div>
+      <button className={styles.submit} type='submit' onClick={signUp}>
         Sign up
       </button>
     </div>
