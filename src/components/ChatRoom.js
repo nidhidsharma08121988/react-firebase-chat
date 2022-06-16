@@ -1,5 +1,5 @@
-import { auth } from '../FirebaseModule.js'
-const ChatRoom = ({ auth, user }) => {
+// import { auth } from '../FirebaseModule.js'
+const ChatRoom = ({ user }) => {
   return (
     <div>
       <div></div>
