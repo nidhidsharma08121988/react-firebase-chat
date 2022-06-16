@@ -1,12 +1,13 @@
 .signUpContainer {
   display: flex;
-  width: 50%;
-  height: 90%;
   flex-direction: column;
-  align-self: center;
+  justify-content: top;
+  width: 90%;
+  height: 90%;
   border-radius: var(--border-radius);
   box-shadow: 1px 1px 3px var(--shadow-color), 1px 1px 3px var(--shadow-color);
   padding: 1rem;
+  margin: 1rem;
 }
 .heading {
   align-self: center;
@@ -28,9 +29,11 @@
 }
 .submit {
   align-self: center;
-  width: 50%;
-  height: 80%;
+  width: 100px;
+  height: 50px;
   max-height: 80%;
+
+  outline: none;
 
   color: white;
   background-color: var(--core-theme-color);
@@ -44,11 +47,15 @@
   padding: 8px;
 
   opacity: 1;
-  z-index: 2;
 
   text-decoration: none;
 }
 .submit:hover {
   opacity: 0.6;
   box-shadow: 1px 2px 1px var(--shadow-color);
+}
+@media screen and (max-width: 650px) {
+  .submit {
+    font-size: 0.7rem;
+  }
 }

@@ -9,7 +9,6 @@ const SignUpPage = () => {
   const [errorMessage, setErrorMessage] = useState('')
   const signUp = async e => {
     e.preventDefault()
-    console.log('in signup')
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,

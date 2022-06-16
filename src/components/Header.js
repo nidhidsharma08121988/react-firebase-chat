@@ -20,9 +20,6 @@ const Header = ({ user }) => {
           </>
         ) : (
           <>
-            <Link className={styles.signUpButton} to='/signUp'>
-              Register
-            </Link>
             <Link className={styles.signInButton} to='/signIn'>
               LogIn
             </Link>
