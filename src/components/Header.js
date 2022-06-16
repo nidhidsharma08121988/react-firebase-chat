@@ -4,7 +4,8 @@ import styles from './Header.module.css'
 import { Link } from 'react-router-dom'
 
 const Header = ({ user }) => {
-  const userEmailStart = user && user.email.split('@')[0].toUpperCase()
+  const { email } = user ? user : ''
+  const userEmailStart = user && email.split('@')[0].toUpperCase()
   return (
     <div className={styles.headerComponentContainer}>
       <Link className={styles.titleIcon} to='/'>

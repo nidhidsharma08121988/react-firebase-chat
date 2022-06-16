@@ -20,7 +20,7 @@ const SignInPage = () => {
       setPassword('')
       console.log('User logged in', userCredential.user)
     } catch (error) {
-      setErrorMessage(error.message)
+      setErrorMessage('The email or password you entered is incorrect.')
       setEmail('')
       setPassword('')
     }

@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import styles from './App.module.css'
 import ChatRoom from './components/ChatRoom'
-import SignUpPage from './components/SignUpPage'
 import SignInPage from './components/SignInPage'
 import Header from './components/Header'
 import WelcomePage from './components/WelcomePage'
@@ -26,7 +25,6 @@ const App = () => {
             <Routes>
               <Route exact path='/' element={<WelcomePage />} />
               <Route exact path='/signIn' element={<SignInPage />} />
-              <Route exact path='/signUp' element={<SignUpPage />} />
             </Routes>
           )}
         </div>
