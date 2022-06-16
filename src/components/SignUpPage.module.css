@@ -5,8 +5,8 @@
   flex-direction: column;
   align-self: center;
   border-radius: var(--border-radius);
-  border: 1px solid lightgray;
-  padding: 8px;
+  box-shadow: 1px 1px 3px var(--shadow-color), 1px 1px 3px var(--shadow-color);
+  padding: 1rem;
 }
 .heading {
   align-self: center;

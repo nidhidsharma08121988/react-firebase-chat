@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../App'
+import { auth } from '../FirebaseModule'
 import styles from './SignUpPage.module.css'
 
 const SignUpPage = () => {

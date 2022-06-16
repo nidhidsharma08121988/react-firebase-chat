@@ -1,8 +1,10 @@
+import React from 'react'
 import SignOutButton from './SignOutButton'
 import styles from './Header.module.css'
 import { Link } from 'react-router-dom'
 
-const Header = ({ user, auth }) => {
+const Header = ({ user }) => {
+  const userEmailStart = user && user.email.split('@')[0].toUpperCase()
   return (
     <div className={styles.headerComponentContainer}>
       <Link className={styles.titleIcon} to='/'>
@@ -12,7 +14,10 @@ const Header = ({ user, auth }) => {
 
       <div className={styles.userLogInOutArea}>
         {user ? (
-          <SignOutButton auth={auth} />
+          <>
+            <h4>Hello, {userEmailStart}</h4>
+            <SignOutButton />
+          </>
         ) : (
           <>
             <Link className={styles.signUpButton} to='/signUp'>
