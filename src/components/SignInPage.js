@@ -7,7 +7,9 @@ import styles from './SignInPage.module.css'
 const SignInPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
   const signInUser = async e => {
+    e.preventDefault()
     try {
       const userCredential = await signInWithEmailAndPassword(
         auth,
@@ -18,11 +20,13 @@ const SignInPage = () => {
       setPassword('')
       console.log('User logged in', userCredential.user)
     } catch (error) {
-      console.log('In error', error.message)
+      setErrorMessage(error.message)
+      setEmail('')
+      setPassword('')
     }
   }
   return (
-    <div className={styles.signInContainer}>
+    <form className={styles.signInContainer} onSubmit={signInUser}>
       <h3 className={styles.heading}>Log In</h3>
       <div className={styles.inputContainer}>
         <label htmlFor='emailSignIn' className={styles.labels}>
@@ -49,14 +53,24 @@ const SignInPage = () => {
           value={password}
           name='password'
           onChange={e => setPassword(e.target.value)}
-          minLength={6}
           required
         />
       </div>
-      <button className={styles.submit} type='submit' onClick={signInUser}>
+      {errorMessage !== '' ? (
+        <span
+          style={{
+            color: 'red',
+          }}
+        >
+          {errorMessage}
+        </span>
+      ) : (
+        ''
+      )}
+      <button className={styles.submit} type='submit'>
         Sign In
       </button>
-    </div>
+    </form>
   )
 }
 

@@ -2,6 +2,8 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite'
+
 const firebaseConfig = {
   apiKey: 'AIzaSyAWn5a6SUM0dDrrjOE18eYsa6kzr3S9EbA',
   authDomain: 'my-awesome-react-chat-app.firebaseapp.com',
@@ -14,6 +16,7 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig)
 
+//very important step that keeps track of whether user is authenticated
 export const auth = getAuth(firebaseApp)
 
-export default firebaseApp
+const database = getFirestore(firebaseApp)

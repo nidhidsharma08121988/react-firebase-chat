@@ -6,7 +6,9 @@ import styles from './SignUpPage.module.css'
 const SignUpPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
   const signUp = async e => {
+    e.preventDefault()
     console.log('in signup')
     try {
       const userCredential = await createUserWithEmailAndPassword(
@@ -16,13 +18,16 @@ const SignUpPage = () => {
       )
       setEmail('')
       setPassword('')
-      console.log('User created', userCredential)
+      setErrorMessage('')
+      console.log(userCredential)
     } catch (error) {
-      console.log('In error', error.message)
+      setErrorMessage(error.message)
+      setEmail('')
+      setPassword('')
     }
   }
   return (
-    <div className={styles.signUpContainer}>
+    <form className={styles.signUpContainer} onSubmit={signUp}>
       <h3 className={styles.heading}>Register</h3>
       <div className={styles.inputContainer}>
         <label htmlFor='email'>Email:</label>
@@ -48,13 +53,29 @@ const SignUpPage = () => {
           name='password'
           onChange={e => setPassword(e.target.value)}
           minLength={6}
+          pattern='^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$'
           required
         />
+        <span style={{ fontSize: 7, color: 'teal' }}>
+          Password must be at least 6 characters long and must have at least one
+          number and one letter
+        </span>
+        {errorMessage !== '' ? (
+          <span
+            style={{
+              color: 'red',
+            }}
+          >
+            {errorMessage}
+          </span>
+        ) : (
+          ''
+        )}
       </div>
-      <button className={styles.submit} type='submit' onClick={signUp}>
+      <button className={styles.submit} type='submit'>
         Sign up
       </button>
-    </div>
+    </form>
   )
 }
 

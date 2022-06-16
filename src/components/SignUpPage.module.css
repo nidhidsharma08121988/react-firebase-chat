@@ -14,13 +14,13 @@
 }
 .inputContainer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
   margin: 5px;
 }
 .input {
-  width: 80%;
+  width: 100%;
   outline: none;
   border-radius: var(--border-radius);
   border: 1px solid lightgray;
