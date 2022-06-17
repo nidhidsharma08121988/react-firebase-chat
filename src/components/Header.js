@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const Header = ({ user }) => {
   const { email } = user ? user : ''
-  const userEmailStart = user && email.split('@')[0].toUpperCase()
+  const userEmailStart = user && email.split('@')[0]
   return (
     <div className={styles.headerComponentContainer}>
       <Link className={styles.titleIcon} to='/'>
@@ -16,7 +16,7 @@ const Header = ({ user }) => {
       <div className={styles.userLogInOutArea}>
         {user ? (
           <>
-            <h4>Hello, {userEmailStart}</h4>
+            <h4 className={styles.usernameHeader}>Hello, {userEmailStart}</h4>
             <SignOutButton />
           </>
         ) : (
