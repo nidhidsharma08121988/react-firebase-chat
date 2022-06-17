@@ -2,13 +2,17 @@
   position: fixed;
   width: 100%;
   max-width: 100%;
+  height: auto;
   max-height: 80px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin: 0px;
+  top: 0px;
+  left: 0px;
   opacity: 1;
+  background-color: white;
 }
 .titleIcon {
   display: flex;
@@ -32,8 +36,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-right: 1rem;
   font-size: 1rem;
+  margin-right: 1rem;
+  padding-right: 1rem;
 }
 
 .signInButton {
