@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Rooms.module.css'
 
-const Rooms = () => {
+const Rooms = ({ setSelectedRoom, selectedRoom }) => {
   const rooms = {
     rr1: {
       title: 'Wedding Dhamaka',
@@ -40,7 +40,11 @@ const Rooms = () => {
   const RoomsList = (
     <ul className={styles.rooms}>
       {roomIds.map(roomId => (
-        <li key={roomId} className={styles.room}>
+        <li
+          key={roomId}
+          className={styles.room}
+          onClick={() => setSelectedRoom(rooms[roomId])}
+        >
           {rooms[roomId].title}
         </li>
       ))}
