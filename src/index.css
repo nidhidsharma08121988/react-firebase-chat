@@ -3,10 +3,13 @@
     Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
     Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   letter-spacing: 0.5px;
+  box-sizing: border-box;
 }
 
 :root {
   --core-theme-color: teal;
   --shadow-color: lightgray;
   --border-radius: 10px;
+  --secondary-color: #66b2b2;
+  --compliment-color: white;
 }
