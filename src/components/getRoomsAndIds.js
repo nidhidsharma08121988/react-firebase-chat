@@ -1,4 +1,4 @@
-export function getRoomsAndIds() {
+export function getRoomsListWithIds() {
   const rooms = {
     rr1: {
       title: 'Wedding Dhamaka',
@@ -34,10 +34,9 @@ export function getRoomsAndIds() {
     },
   }
   const roomIds = Object.keys(rooms)
-  const getRooms = () =>
-    roomIds.map(roomId => ({
-      ...rooms[roomId],
-      id: roomId,
-    }))
-  return { roomIds, rooms }
+
+  return roomIds.map(roomId => ({
+    ...rooms[roomId],
+    id: roomId,
+  }))
 }
