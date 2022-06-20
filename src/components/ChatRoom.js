@@ -11,7 +11,7 @@ const ChatRoom = () => {
   const handleRoomSelection = room => {
     setSelectedRoom(room)
   }
-  
+
   return (
     <div className={styles.chatRoomContainer}>
       <div className={styles.chatRoomsNav}>

@@ -1,0 +1,11 @@
+.room {
+  list-style: none;
+  margin-bottom: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: var(--core-theme-color);
+  transition: all 0.1s ease-in;
+}
+.room:hover {
+  background-color: var(--secondary-color);
+}
