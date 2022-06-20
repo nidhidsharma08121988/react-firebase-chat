@@ -1,11 +1,12 @@
 import React from 'react'
 import styles from './Room.module.css'
 
-const Room = ({ room, setSelectedRoom }) => {
+const Room = ({ room, setSelectedRoom, selectedRoom }) => {
+  const isSelected = selectedRoom.id === room.id
   return (
     <li
       key={room.id}
-      className={styles.room}
+      className={isSelected ? styles.selectedRoom : styles.room}
       onClick={() => setSelectedRoom(room)}
     >
       {room.title}

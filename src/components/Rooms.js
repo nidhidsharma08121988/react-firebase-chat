@@ -9,7 +9,11 @@ const Rooms = ({ setSelectedRoom, selectedRoom }) => {
   const RoomsList = (
     <ul className={styles.rooms}>
       {rooms.map(room => (
-        <Room room={room} setSelectedRoom={setSelectedRoom} />
+        <Room
+          room={room}
+          selectedRoom={selectedRoom}
+          setSelectedRoom={setSelectedRoom}
+        />
       ))}
     </ul>
   )
