@@ -10,6 +10,7 @@ const Rooms = ({ setSelectedRoom, selectedRoom }) => {
     <ul className={styles.rooms}>
       {rooms.map(room => (
         <Room
+          key={room.id}
           room={room}
           selectedRoom={selectedRoom}
           setSelectedRoom={setSelectedRoom}

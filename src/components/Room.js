@@ -5,7 +5,6 @@ const Room = ({ room, setSelectedRoom, selectedRoom }) => {
   const isSelected = selectedRoom.id === room.id
   return (
     <li
-      key={room.id}
       className={isSelected ? styles.selectedRoom : styles.room}
       onClick={() => setSelectedRoom(room)}
     >
