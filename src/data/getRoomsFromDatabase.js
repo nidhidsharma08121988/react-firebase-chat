@@ -1,5 +1,5 @@
-export function getRoomsListWithIds() {
-  const rooms = {
+export function getRoomsFromDatabase() {
+  return {
     rr1: {
       title: 'Wedding Dhamaka',
       admins: ['namrata@yahoo.com'],
@@ -33,10 +33,4 @@ export function getRoomsListWithIds() {
       ],
     },
   }
-  const roomIds = Object.keys(rooms)
-
-  return roomIds.map(roomId => ({
-    ...rooms[roomId],
-    id: roomId,
-  }))
 }
