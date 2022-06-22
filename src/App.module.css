@@ -6,13 +6,3 @@
   flex-direction: column;
   padding: 0px;
 }
-
-.section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: 80px;
-  margin: 0px;
-  width: 100%;
-}
