@@ -1,0 +1,1 @@
+export const SET_SELECTED_ROOM = 'SET_SELECTED_ROOM'

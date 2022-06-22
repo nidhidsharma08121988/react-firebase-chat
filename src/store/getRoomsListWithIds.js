@@ -1,4 +1,4 @@
-import { getRoomsFromDatabase } from './getRoomsFromDatabase'
+import { getRoomsFromDatabase } from '../backend/getRoomsFromDatabase'
 
 export function getRoomsListWithIds() {
   const rooms = getRoomsFromDatabase()

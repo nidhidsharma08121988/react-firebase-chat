@@ -1,6 +1,6 @@
 import React from 'react'
 //firebase SDK
-import { auth } from './FirebaseModule'
+import { auth } from './backend/FirebaseModule'
 //Firebase Hooks
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'

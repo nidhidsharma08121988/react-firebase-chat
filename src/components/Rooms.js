@@ -1,5 +1,5 @@
 import React from 'react'
-import { getRoomsListWithIds } from '../data/getRoomsListWithIds'
+import { getRoomsListWithIds } from '../store/getRoomsListWithIds'
 import Room from './Room'
 import styles from './Rooms.module.css'
 

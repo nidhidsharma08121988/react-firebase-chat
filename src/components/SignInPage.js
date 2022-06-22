@@ -1,6 +1,6 @@
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import React, { useState } from 'react'
-import { auth } from '../FirebaseModule'
+import { auth } from '../backend/FirebaseModule'
 
 import styles from './SignInPage.module.css'
 
