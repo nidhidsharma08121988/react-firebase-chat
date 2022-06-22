@@ -15,21 +15,23 @@ const App = () => {
   const [user] = useAuthState(auth)
 
   return (
-    <Router>
-      <div className={styles.app}>
-        <Header user={user} auth={auth} />
-        <div className={styles.section}>
-          {user ? (
-            <ChatRoom user={user} />
-          ) : (
-            <Routes>
-              <Route exact path='/' element={<WelcomePage />} />
-              <Route exact path='/signIn' element={<SignInPage />} />
-            </Routes>
-          )}
+    <React.StrictMode>
+      <Router>
+        <div className={styles.app}>
+          <Header user={user} auth={auth} />
+          <div className={styles.section}>
+            {user ? (
+              <ChatRoom user={user} />
+            ) : (
+              <Routes>
+                <Route exact path='/' element={<WelcomePage />} />
+                <Route exact path='/signIn' element={<SignInPage />} />
+              </Routes>
+            )}
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </React.StrictMode>
   )
 }
 
