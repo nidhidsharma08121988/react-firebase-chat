@@ -7,7 +7,6 @@ const SignOutButton = () => {
   const handleClick = async e => {
     try {
       await signOut(auth)
-      console.log('user signed out')
     } catch (error) {
       console.log('in error', error.message)
     }
