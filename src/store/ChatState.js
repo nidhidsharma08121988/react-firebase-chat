@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../backend/FirebaseModule'
 import chatReducer from './chatReducer'
-import { SET_ROOMS, SET_USER } from './types'
+import { SET_ROOMS, SET_SELECTED_ROOM, SET_USER } from './types'
 import { getRoomsListWithIds } from './getRoomsListWithIds'
 
 const initialChatState = {
@@ -44,10 +44,19 @@ const ChatState = ({ children }) => {
       payload: rooms,
     })
   }
+
+  const setSelectedRoom = room => {
+    dispatch({
+      type: SET_SELECTED_ROOM,
+      payload: room,
+    })
+  }
+
   return (
     <ChatContext.Provider
       value={{
         ...state,
+        setSelectedRoom,
       }}
     >
       {children}

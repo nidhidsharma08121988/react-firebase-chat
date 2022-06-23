@@ -1,24 +1,15 @@
 import styles from './ChatRoom.module.css'
 import Rooms from './Rooms'
-import { useState } from 'react'
 import { ChatContext } from '../store/ChatState'
+import { useContext } from 'react'
 
 const ChatRoom = () => {
-  const [selectedRoom, setSelectedRoom] = useState({
-    id: '',
-    title: '',
-    participants: [],
-  })
-  const handleRoomSelection = room => {
-    setSelectedRoom(room)
-  }
+  const { selectedRoom } = useContext(ChatContext)
+
   return (
     <div className={styles.chatRoomContainer}>
       <div className={styles.chatRoomsNav}>
-        <Rooms
-          setSelectedRoom={handleRoomSelection}
-          selectedRoom={selectedRoom}
-        />
+        <Rooms />
       </div>
       <div className={styles.chatArea}>{<h4>{selectedRoom.title}</h4>}</div>
     </div>
