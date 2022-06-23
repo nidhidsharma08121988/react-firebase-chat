@@ -1,17 +1,17 @@
 import styles from './ChatRoom.module.css'
 import Rooms from './Rooms'
 import { useState } from 'react'
+import { ChatContext } from '../store/ChatState'
 
 const ChatRoom = () => {
   const [selectedRoom, setSelectedRoom] = useState({
+    id: '',
     title: '',
-    admins: [],
     participants: [],
   })
   const handleRoomSelection = room => {
     setSelectedRoom(room)
   }
-
   return (
     <div className={styles.chatRoomContainer}>
       <div className={styles.chatRoomsNav}>
