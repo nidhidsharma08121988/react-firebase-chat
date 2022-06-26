@@ -13,11 +13,7 @@ const SignInPage = () => {
   const signInUser = async e => {
     e.preventDefault()
     try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      )
+      await signInWithEmailAndPassword(auth, email, password)
       setEmail('')
       setPassword('')
       navigate('/chatRoom')
