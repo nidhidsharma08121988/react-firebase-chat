@@ -7,6 +7,8 @@ import { SET_MESSAGES, SET_ROOMS, SET_SELECTED_ROOM, SET_USER } from './types'
 import { getRoomsListWithIds } from '../library/getRoomsListWithIds'
 import { getMessageListWithIds } from '../library/getMessagesListWithIId'
 
+const allMessages = getMessageListWithIds()
+
 const initialChatState = {
   user: null,
   rooms: [],
@@ -26,16 +28,21 @@ const ChatState = ({ children }) => {
 
   useEffect(() => {
     const rooms = getRoomsListWithIds()
-    const messages = getMessageListWithIds()
     setRooms(rooms)
-    setMessages(messages)
-    const defaultSelectedRoom = rooms[0]
+    const defaultSelectedRoom = rooms !== [] ? rooms[0] : []
     setSelectedRoom(defaultSelectedRoom)
   }, [])
 
   useEffect(() => {
     setUser(user)
   }, [user])
+
+  const getMessagesOfSelectedRoom = selectedRoom => {
+    const messagesOfSelectedRoom = allMessages.filter(
+      message => message.roomId === selectedRoom.id
+    )
+    setMessages(messagesOfSelectedRoom)
+  }
 
   const setUser = user => {
     dispatch({
@@ -70,6 +77,7 @@ const ChatState = ({ children }) => {
       value={{
         ...state,
         setSelectedRoom,
+        getMessagesOfSelectedRoom,
       }}
     >
       {children}
