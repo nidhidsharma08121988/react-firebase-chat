@@ -3,12 +3,14 @@ import { useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../backend/FirebaseModule'
 import chatReducer from './chatReducer'
-import { SET_ROOMS, SET_SELECTED_ROOM, SET_USER } from './types'
-import { getRoomsListWithIds } from './getRoomsListWithIds'
+import { SET_MESSAGES, SET_ROOMS, SET_SELECTED_ROOM, SET_USER } from './types'
+import { getRoomsListWithIds } from '../library/getRoomsListWithIds'
+import { getMessageListWithIds } from '../library/getMessagesListWithIId'
 
 const initialChatState = {
   user: null,
   rooms: [],
+  messages: [],
   selectedRoom: {
     id: '',
     title: '',
@@ -24,7 +26,9 @@ const ChatState = ({ children }) => {
 
   useEffect(() => {
     const rooms = getRoomsListWithIds()
+    const messages = getMessageListWithIds()
     setRooms(rooms)
+    setMessages(messages)
   }, [])
 
   useEffect(() => {
@@ -42,6 +46,13 @@ const ChatState = ({ children }) => {
     dispatch({
       type: SET_ROOMS,
       payload: rooms,
+    })
+  }
+
+  const setMessages = messages => {
+    dispatch({
+      type: SET_MESSAGES,
+      payload: messages,
     })
   }
 

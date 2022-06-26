@@ -1,7 +1,12 @@
-import { SET_ROOMS, SET_SELECTED_ROOM, SET_USER } from './types'
+import { SET_MESSAGES, SET_ROOMS, SET_SELECTED_ROOM, SET_USER } from './types'
 
 const chatReducer = (state, action) => {
   switch (action.type) {
+    case SET_MESSAGES:
+      return {
+        ...state,
+        messages: action.payload,
+      }
     case SET_SELECTED_ROOM:
       return {
         ...state,
