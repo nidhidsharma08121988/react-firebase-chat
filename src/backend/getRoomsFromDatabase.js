@@ -11,8 +11,6 @@ export function getRoomsFromDatabase() {
         'meeta@yahoo.com',
         'puja@yahoo.com',
         'nidhi@yahoo.com',
-        'pankaj@yahoo.com',
-        'manish@yahoo.com',
       ],
     },
     rr3: {
@@ -21,9 +19,6 @@ export function getRoomsFromDatabase() {
         'nidhi@yahoo.com',
         'manisha@yahoo.com',
         'dhwani@yahoo.com',
-        'swaleha@yahoo.com',
-        'prachi@yahoo.com',
-        'jyoti@yahoo.com',
       ],
     },
   }
