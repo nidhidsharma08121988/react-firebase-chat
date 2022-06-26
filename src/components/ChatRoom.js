@@ -3,16 +3,19 @@ import Rooms from './Rooms'
 import { ChatContext } from '../store/ChatState'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import RoomMessages from './RoomMessages'
 
 const ChatRoom = () => {
-  const { user, selectedRoom } = useContext(ChatContext)
+  const { user } = useContext(ChatContext)
 
   return user !== null ? (
     <div className={styles.chatRoomContainer}>
       <div className={styles.chatRoomsNav}>
         <Rooms />
       </div>
-      <div className={styles.chatArea}>{<h4>{selectedRoom.title}</h4>}</div>
+      <div className={styles.chatArea}>
+        <RoomMessages />
+      </div>
     </div>
   ) : (
     <div className={styles.warningContainer}>
