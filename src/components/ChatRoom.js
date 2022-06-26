@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const ChatRoom = () => {
   const { user, selectedRoom } = useContext(ChatContext)
 
-  return user ? (
+  return user !== null ? (
     <div className={styles.chatRoomContainer}>
       <div className={styles.chatRoomsNav}>
         <Rooms />
