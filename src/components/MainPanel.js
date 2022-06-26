@@ -12,14 +12,11 @@ const MainPanel = () => {
 
   return (
     <div className={styles.section}>
-      {user ? (
-        <ChatRoom />
-      ) : (
-        <Routes>
-          <Route exact path='/' element={<WelcomePage />} />
-          <Route exact path='/signIn' element={<SignInPage />} />
-        </Routes>
-      )}
+      <Routes>
+        <Route exact path='/' element={<WelcomePage />} />
+        <Route exact path='/signIn' element={<SignInPage />} />
+        <Route exact path='/chatRoom' element={<ChatRoom />} />
+      </Routes>
     </div>
   )
 }

@@ -1,13 +1,15 @@
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import React, { useState } from 'react'
 import { auth } from '../backend/FirebaseModule'
-
+import { useNavigate } from 'react-router-dom'
 import styles from './SignInPage.module.css'
 
 const SignInPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
+  const navigate = useNavigate()
+
   const signInUser = async e => {
     e.preventDefault()
     try {
@@ -18,7 +20,7 @@ const SignInPage = () => {
       )
       setEmail('')
       setPassword('')
-      console.log('User logged in', userCredential.user)
+      navigate('/chatRoom')
     } catch (error) {
       setErrorMessage('The email or password you entered is incorrect.')
       setEmail('')
