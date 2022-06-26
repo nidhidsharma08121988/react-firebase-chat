@@ -1,4 +1,4 @@
-export function getMessagesFromDatabase() {
+export function getUserMessagesFromDatabase() {
   return {
     m100: {
       message: 'Hello everyone!',

@@ -1,4 +1,4 @@
-export function getRoomsFromDatabase() {
+export function getUserRoomsFromDatabase() {
   return {
     rr1: {
       title: 'Wedding Dhamaka',
