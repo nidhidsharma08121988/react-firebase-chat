@@ -29,6 +29,8 @@ const ChatState = ({ children }) => {
     const messages = getMessageListWithIds()
     setRooms(rooms)
     setMessages(messages)
+    const defaultSelectedRoom = rooms[0]
+    setSelectedRoom(defaultSelectedRoom)
   }, [])
 
   useEffect(() => {
