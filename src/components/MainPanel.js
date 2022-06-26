@@ -8,8 +8,6 @@ import SignInPage from './SignInPage'
 import WelcomePage from './WelcomePage'
 
 const MainPanel = () => {
-  const { user } = useContext(ChatContext)
-
   return (
     <div className={styles.section}>
       <Routes>
