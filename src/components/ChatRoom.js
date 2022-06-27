@@ -3,7 +3,7 @@ import Rooms from './Rooms'
 import { ChatContext } from '../store/ChatState'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import RoomMessages from './sub_components/RoomMessages'
+import Messages from './sub_components/Messages'
 import SendMessageForm from './sub_components/SendMessageForm'
 
 const showWarning = (
@@ -25,7 +25,7 @@ const showRooms = (
       <Rooms />
     </div>
     <div className={styles.chatArea}>
-      <RoomMessages />
+      <Messages />
       <SendMessageForm />
     </div>
   </div>

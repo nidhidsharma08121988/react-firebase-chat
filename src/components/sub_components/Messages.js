@@ -2,10 +2,10 @@ import { useEffect } from 'react'
 import { useContext } from 'react'
 import { ChatContext } from '../../store/ChatState'
 
-const RoomMessage = ({ message }) => {
+const Message = ({ message }) => {
   return <div>{message.text}</div>
 }
-const RoomMessages = () => {
+const Messages = () => {
   const { selectedRoom, getMessagesOfSelectedRoom, messages } =
     useContext(ChatContext)
 
@@ -14,8 +14,6 @@ const RoomMessages = () => {
     //eslint-disable-next-line
   }, [selectedRoom])
 
-  return messages.map(message => (
-    <RoomMessage key={message.id} message={message} />
-  ))
+  return messages.map(message => <Message key={message.id} message={message} />)
 }
-export default RoomMessages
+export default Messages
