@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useContext } from 'react'
-import { ChatContext } from '../store/ChatState'
+import { ChatContext } from '../../store/ChatState'
 
 const RoomMessage = ({ message }) => {
   return <div>{message.text}</div>

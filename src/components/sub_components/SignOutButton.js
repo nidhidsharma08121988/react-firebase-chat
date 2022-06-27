@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { signOut } from 'firebase/auth'
-import { auth } from '../backend/FirebaseModule'
+import { auth } from '../../backend/FirebaseModule'
 import styles from './SignOutButton.module.css'
 
 const SignOutButton = () => {

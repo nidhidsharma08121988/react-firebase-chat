@@ -1,4 +1,5 @@
 import React from 'react'
+import { useContext } from 'react'
 import SignUpPage from './SignUpPage'
 import styles from './WelcomePage.module.css'
 

@@ -12,11 +12,7 @@ const SignUpPage = () => {
   const signUp = async e => {
     e.preventDefault()
     try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      )
+      await createUserWithEmailAndPassword(auth, email, password)
       setEmail('')
       setPassword('')
       setErrorMessage('')

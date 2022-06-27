@@ -3,8 +3,8 @@ import Rooms from './Rooms'
 import { ChatContext } from '../store/ChatState'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import RoomMessages from './RoomMessages'
-import SendMessageForm from './SendMessageForm'
+import RoomMessages from './sub_components/RoomMessages'
+import SendMessageForm from './sub_components/SendMessageForm'
 
 const ChatRoom = () => {
   const { user } = useContext(ChatContext)
