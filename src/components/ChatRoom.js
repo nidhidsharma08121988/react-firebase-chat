@@ -6,32 +6,34 @@ import { Link } from 'react-router-dom'
 import RoomMessages from './sub_components/RoomMessages'
 import SendMessageForm from './sub_components/SendMessageForm'
 
+const showWarning = (
+  <div className={styles.warningContainer}>
+    <h3>Please login to access this url</h3>
+    <div>
+      <Link to='/'>
+        <button className={styles.submit}>Back</button>
+      </Link>
+      <Link to='/signIn'>
+        <button className={styles.submit}>Log In</button>
+      </Link>
+    </div>
+  </div>
+)
+const showRooms = (
+  <div className={styles.chatRoomContainer}>
+    <div className={styles.chatRoomsNav}>
+      <Rooms />
+    </div>
+    <div className={styles.chatArea}>
+      <RoomMessages />
+      <SendMessageForm />
+    </div>
+  </div>
+)
 const ChatRoom = () => {
-  const { user } = useContext(ChatContext)
+  const { isLoggedIn } = useContext(ChatContext)
 
-  return user !== null ? (
-    <div className={styles.chatRoomContainer}>
-      <div className={styles.chatRoomsNav}>
-        <Rooms />
-      </div>
-      <div className={styles.chatArea}>
-        <RoomMessages />
-        <SendMessageForm />
-      </div>
-    </div>
-  ) : (
-    <div className={styles.warningContainer}>
-      <h3>Please login to access this url</h3>
-      <div>
-        <Link to='/'>
-          <button className={styles.submit}>Back</button>
-        </Link>
-        <Link to='/signIn'>
-          <button className={styles.submit}>Log In</button>
-        </Link>
-      </div>
-    </div>
-  )
+  return isLoggedIn ? showRooms : showWarning
 }
 
 export default ChatRoom
