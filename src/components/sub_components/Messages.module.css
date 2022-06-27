@@ -5,8 +5,19 @@
   width: 80%;
   height: 70%;
   margin: 0;
-  padding: 0;
+  padding: 0.5rem 1rem;
   list-style: none;
   align-self: top;
-  border: 1px solid blue;
+  overflow: auto;
+}
+
+.messageContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 1rem;
+  max-width: 50%;
+  border-radius: var(--border-radius);
+  background-color: var(--core-theme-color);
+  filter: brightness(1.6);
 }

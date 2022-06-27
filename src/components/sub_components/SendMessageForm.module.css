@@ -2,9 +2,11 @@
   display: flex;
   position: fixed;
   bottom: 0;
+  left: 30%;
   padding: 1rem;
   margin: 0;
   width: 80%;
   height: 5rem;
   background-color: var(--core-theme-color);
+  filter: brightness(1.3);
 }
