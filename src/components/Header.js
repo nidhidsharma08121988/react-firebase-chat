@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { ChatContext } from './../store/ChatState'
 
-const UserLoggedIn = ({ userEmailStart }) => {
+const ShowUserNameAndLogoutButton = ({ userEmailStart }) => {
   return (
     <>
       <h4 className={styles.usernameHeader}>Hello, {userEmailStart}</h4>
@@ -13,7 +13,7 @@ const UserLoggedIn = ({ userEmailStart }) => {
     </>
   )
 }
-const UserLoggedOut = () => {
+const ShowLogInButton = () => {
   return (
     <>
       <Link className={styles.signInButton} to='/signIn'>
@@ -23,9 +23,10 @@ const UserLoggedOut = () => {
   )
 }
 
-const AppLogoSection = () => {
+const AppLogoSection = ({ isLoggedIn }) => {
+  const linkToPath = isLoggedIn ? '/chatRoom' : '/'
   return (
-    <Link className={styles.titleIcon} to='/'>
+    <Link className={styles.titleIcon} to={linkToPath}>
       <i className={`fa-solid fa-comments ${styles.logo}`} />
       <h2 className={styles.title}>ChitChat</h2>
     </Link>
@@ -38,12 +39,12 @@ const Header = () => {
   const userEmailStart = user && email.split('@')[0]
   return (
     <div className={styles.headerComponentContainer}>
-      <AppLogoSection />
+      <AppLogoSection isLoggedIn={isLoggedIn} />
       <div className={styles.userLogInOutArea}>
         {isLoggedIn ? (
-          <UserLoggedIn userEmailStart={userEmailStart} />
+          <ShowUserNameAndLogoutButton userEmailStart={userEmailStart} />
         ) : (
-          <UserLoggedOut />
+          <ShowLogInButton />
         )}
       </div>
     </div>
