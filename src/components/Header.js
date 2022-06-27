@@ -33,15 +33,14 @@ const AppLogoSection = () => {
 }
 
 const Header = () => {
-  const { user } = useContext(ChatContext)
-
+  const { user, isLoggedIn } = useContext(ChatContext)
   const { email } = user ? user : ''
   const userEmailStart = user && email.split('@')[0]
   return (
     <div className={styles.headerComponentContainer}>
       <AppLogoSection />
       <div className={styles.userLogInOutArea}>
-        {user ? (
+        {isLoggedIn ? (
           <UserLoggedIn userEmailStart={userEmailStart} />
         ) : (
           <UserLoggedOut />
