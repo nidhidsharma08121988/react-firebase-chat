@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../backend/FirebaseModule'
 import styles from './SignUpPage.module.css'
@@ -7,6 +8,7 @@ const SignUpPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
+  const navigate = useNavigate()
   const signUp = async e => {
     e.preventDefault()
     try {
@@ -18,7 +20,7 @@ const SignUpPage = () => {
       setEmail('')
       setPassword('')
       setErrorMessage('')
-      console.log(userCredential)
+      navigate('/chatRoom')
     } catch (error) {
       setErrorMessage(error.message)
       setEmail('')
