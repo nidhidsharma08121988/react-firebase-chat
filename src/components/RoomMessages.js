@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useContext } from 'react'
 import { ChatContext } from '../store/ChatState'
 
-function RoomMessage(message) {
+const RoomMessage = ({ message }) => {
   return <div>{message.text}</div>
 }
 const RoomMessages = () => {
