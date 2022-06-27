@@ -19,5 +19,5 @@
   max-width: 50%;
   border-radius: var(--border-radius);
   background-color: var(--core-theme-color);
-  filter: brightness(1.6);
+  filter: brightness(1.3);
 }
