@@ -23,6 +23,7 @@
   padding: 0 1rem;
   text-decoration: none;
   margin: 0px;
+  outline: none;
 }
 .logo {
   color: var(--core-theme-color);
@@ -40,6 +41,7 @@
   font-size: 1rem;
   margin-right: 1rem;
   padding-right: 1rem;
+  outline: none;
 }
 
 .signInButton {
@@ -54,6 +56,7 @@
   margin: 0 10px;
   opacity: 1;
   text-decoration: none;
+  outline: none;
 }
 
 .signUpButton {
@@ -68,10 +71,12 @@
   text-decoration: none;
   margin: 0 10px;
   opacity: 1;
+  outline: none;
 }
 .usernameHeader {
   font-weight: 500;
   font-size: 1rem;
+  outline: none;
 }
 .signInButton:hover,
 .signUpButton:hover {

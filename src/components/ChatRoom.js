@@ -19,6 +19,7 @@ const showWarning = (
     </div>
   </div>
 )
+
 const showRooms = (
   <div className={styles.chatRoomContainer}>
     <div className={styles.chatRoomsNav}>
@@ -30,9 +31,9 @@ const showRooms = (
     </div>
   </div>
 )
+
 const ChatRoom = () => {
   const { isLoggedIn } = useContext(ChatContext)
-
   return isLoggedIn ? showRooms : showWarning
 }
 

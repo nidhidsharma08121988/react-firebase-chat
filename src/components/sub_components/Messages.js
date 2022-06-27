@@ -2,8 +2,10 @@ import { useEffect } from 'react'
 import { useContext } from 'react'
 import { ChatContext } from '../../store/ChatState'
 
+import styles from './Messages.module.css'
+
 const Message = ({ message }) => {
-  return <div>{message.text}</div>
+  return <li>{message.text}</li>
 }
 const Messages = () => {
   const { selectedRoom, getMessagesOfSelectedRoom, messages } =
@@ -14,6 +16,12 @@ const Messages = () => {
     //eslint-disable-next-line
   }, [selectedRoom])
 
-  return messages.map(message => <Message key={message.id} message={message} />)
+  return (
+    <ul className={styles.messagesContainer}>
+      {messages.map(message => (
+        <Message key={message.id} message={message} />
+      ))}
+    </ul>
+  )
 }
 export default Messages
