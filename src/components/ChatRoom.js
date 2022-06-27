@@ -4,7 +4,7 @@ import { ChatContext } from '../store/ChatState'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import RoomMessages from './RoomMessages'
-import MessageInput from './MessageInput'
+import SendMessageForm from './SendMessageForm'
 
 const ChatRoom = () => {
   const { user } = useContext(ChatContext)
@@ -16,7 +16,7 @@ const ChatRoom = () => {
       </div>
       <div className={styles.chatArea}>
         <RoomMessages />
-        <MessageInput />
+        <SendMessageForm />
       </div>
     </div>
   ) : (

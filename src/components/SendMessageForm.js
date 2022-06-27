@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MessageInput = () => {
+const SendMessageForm = () => {
   return (
     <div>
       <input />
@@ -9,4 +9,4 @@ const MessageInput = () => {
   )
 }
 
-export default MessageInput
+export default SendMessageForm
