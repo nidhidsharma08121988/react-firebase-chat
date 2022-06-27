@@ -3,7 +3,13 @@ import { useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../backend/FirebaseModule'
 import chatReducer from './chatReducer'
-import { SET_MESSAGES, SET_ROOMS, SET_SELECTED_ROOM, SET_USER } from './types'
+import {
+  SET_LOGGED_IN,
+  SET_MESSAGES,
+  SET_ROOMS,
+  SET_SELECTED_ROOM,
+  SET_USER,
+} from './types'
 import { getRoomsListWithIds } from '../library/getRoomsListWithIds'
 import { getMessageListWithIds } from '../library/getMessagesListWithIId'
 
@@ -18,6 +24,7 @@ const initialChatState = {
     title: '',
     participants: [],
   },
+  isLoggedIn: false,
 }
 
 export const ChatContext = createContext(initialChatState)
@@ -35,6 +42,11 @@ const ChatState = ({ children }) => {
 
   useEffect(() => {
     setUser(user)
+    if (user) {
+      setLoggedIn(true)
+    } else {
+      setLoggedIn(false)
+    }
   }, [user])
 
   const getMessagesOfSelectedRoom = selectedRoom => {
@@ -44,6 +56,12 @@ const ChatState = ({ children }) => {
     setMessages(messagesOfSelectedRoom)
   }
 
+  const setLoggedIn = isLoggedIn => {
+    dispatch({
+      type: SET_LOGGED_IN,
+      payload: isLoggedIn,
+    })
+  }
   const setUser = user => {
     dispatch({
       type: SET_USER,
