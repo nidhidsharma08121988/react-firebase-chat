@@ -29,3 +29,6 @@
   color: var(--core-theme-color);
   margin-bottom: 0.5rem;
 }
+.messageText {
+  font-size: 0.9rem;
+}

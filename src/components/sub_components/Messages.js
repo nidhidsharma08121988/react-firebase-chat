@@ -13,7 +13,7 @@ const Message = ({ message }) => {
           <i className='fa-solid fa-ellipsis'></i>
         </div>
       </div>
-      <div>{message.text}</div>
+      <div className={styles.messageText}>{message.text}</div>
     </li>
   )
 }

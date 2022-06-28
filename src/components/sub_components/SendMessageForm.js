@@ -3,8 +3,10 @@ import styles from './SendMessageForm.module.css'
 const SendMessageForm = () => {
   return (
     <div className={styles.messageFormContainer}>
-      <input />
-      <button>Send message</button>
+      <input className={styles.messageInput} />
+      <div className={styles.submit}>
+        <i class='fa-solid fa-greater-than'></i>
+      </div>
     </div>
   )
 }
