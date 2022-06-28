@@ -24,7 +24,7 @@
   width: 100%;
   outline: none;
   border-radius: var(--border-radius);
-  border: 1px solid lightgray;
+  border: 1px solid var(--shadow-color);
   padding: 8px;
 }
 .submit {
