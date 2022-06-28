@@ -7,7 +7,12 @@ import styles from './Messages.module.css'
 const Message = ({ message }) => {
   return (
     <li className={styles.messageContainer}>
-      <div>{message.authorEmail}</div>
+      <div className={styles.messageHeader}>
+        <div>{message.authorEmail}</div>
+        <div>
+          <i className='fa-solid fa-ellipsis'></i>
+        </div>
+      </div>
       <div>{message.text}</div>
     </li>
   )
