@@ -18,11 +18,11 @@ const Message = ({ message }) => {
   )
 }
 const Messages = () => {
-  const { selectedRoom, getMessagesOfSelectedRoom, messages } =
+  const { selectedRoom, setMessagesOfSelectedRoom, messages } =
     useContext(ChatContext)
 
   useEffect(() => {
-    getMessagesOfSelectedRoom(selectedRoom)
+    setMessagesOfSelectedRoom(selectedRoom)
     //eslint-disable-next-line
   }, [selectedRoom])
 

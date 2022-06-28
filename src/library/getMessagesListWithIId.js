@@ -3,9 +3,10 @@ import { getUserMessagesFromDatabase } from '../backend/getUserMessagesFromDatab
 export function getMessageListWithIds() {
   const messages = getUserMessagesFromDatabase()
   const messageIds = Object.keys(messages)
-
-  return messageIds.map(messageId => ({
+  const allMessagesList = messageIds.map(messageId => ({
     ...messages[messageId],
     id: messageId,
   }))
+
+  return allMessagesList
 }

@@ -13,7 +13,7 @@ import {
 import { getRoomsListWithIds } from '../library/getRoomsListWithIds'
 import { getMessageListWithIds } from '../library/getMessagesListWithIId'
 
-const allMessages = getMessageListWithIds()
+let allMessages = []
 
 const initialChatState = {
   user: null,
@@ -34,22 +34,20 @@ const ChatState = ({ children }) => {
   const [state, dispatch] = useReducer(chatReducer, initialChatState)
 
   useEffect(() => {
-    const rooms = getRoomsListWithIds()
-    setRooms(rooms)
-    const defaultSelectedRoom = rooms !== [] ? rooms[0] : []
-    setSelectedRoom(defaultSelectedRoom)
-  }, [])
-
-  useEffect(() => {
     setUser(user)
     if (user) {
       setLoggedIn(true)
+      const rooms = getRoomsListWithIds(user)
+      setRooms(rooms)
+      const defaultSelectedRoom = rooms !== [] ? rooms[0] : []
+      setSelectedRoom(defaultSelectedRoom)
+      allMessages = getMessageListWithIds()
     } else {
       setLoggedIn(false)
     }
   }, [user])
 
-  const getMessagesOfSelectedRoom = selectedRoom => {
+  const setMessagesOfSelectedRoom = selectedRoom => {
     const messagesOfSelectedRoom = allMessages.filter(
       message => message.roomId === selectedRoom.id
     )
@@ -95,7 +93,7 @@ const ChatState = ({ children }) => {
       value={{
         ...state,
         setSelectedRoom,
-        getMessagesOfSelectedRoom,
+        setMessagesOfSelectedRoom: setMessagesOfSelectedRoom,
       }}
     >
       {children}
