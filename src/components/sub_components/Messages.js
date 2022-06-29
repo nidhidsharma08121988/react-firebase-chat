@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import { ChatContext } from '../../store/ChatState'
-
+import moment from 'moment'
 import styles from './Messages.module.css'
 
 const Message = ({ message }) => {
@@ -14,6 +14,9 @@ const Message = ({ message }) => {
         </div>
       </div>
       <div className={styles.messageText}>{message.text}</div>
+      <div className={styles.messageCreated}>
+        {moment(message.created).format('h:mm a')}
+      </div>
     </li>
   )
 }
