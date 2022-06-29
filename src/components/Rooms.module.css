@@ -4,28 +4,26 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
   width: 100%;
   height: 100%;
 }
 
-.room {
-  list-style: none;
-  margin-bottom: 0;
-  padding: 0.5rem;
-  cursor: pointer;
-  background-color: var(--core-theme-color);
-  transition: all 0.1s ease-in;
-}
-
+.room,
 .selectedRoom {
   list-style: none;
   margin-bottom: 0;
   padding: 0.5rem;
   cursor: pointer;
   transition: all 0.1s ease-in;
+}
+.room {
+  background-color: var(--core-theme-color);
+}
+.selectedRoom {
   background-color: var(--secondary-color);
 }
-
 .room:hover {
   background-color: var(--secondary-color);
 }

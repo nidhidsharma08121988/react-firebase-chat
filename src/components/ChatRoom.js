@@ -5,7 +5,20 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Messages from './sub_components/Messages'
 import SendMessageForm from './sub_components/SendMessageForm'
+import { CreateRoomsButton } from './sub_components/CreateRoomsButton'
 
+const showRooms = (
+  <div className={styles.chatRoomContainer}>
+    <div className={styles.chatRoomsNav}>
+      <Rooms />
+      <CreateRoomsButton />
+    </div>
+    <div className={styles.chatArea}>
+      <Messages />
+      <SendMessageForm />
+    </div>
+  </div>
+)
 const showWarning = (
   <div className={styles.warningContainer}>
     <h3>Please login to access this url</h3>
@@ -19,19 +32,6 @@ const showWarning = (
     </div>
   </div>
 )
-
-const showRooms = (
-  <div className={styles.chatRoomContainer}>
-    <div className={styles.chatRoomsNav}>
-      <Rooms />
-    </div>
-    <div className={styles.chatArea}>
-      <Messages />
-      <SendMessageForm />
-    </div>
-  </div>
-)
-
 const ChatRoom = () => {
   const { isLoggedIn } = useContext(ChatContext)
   return isLoggedIn ? showRooms : showWarning
