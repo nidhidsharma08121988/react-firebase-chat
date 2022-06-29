@@ -1,6 +1,6 @@
 .app {
-  width: 98vw;
-  height: 98vh;
+  max-width: 98vw;
+  max-height: 98vh;
   margin: 0px;
   display: flex;
   flex-direction: column;
