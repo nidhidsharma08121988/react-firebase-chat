@@ -20,8 +20,7 @@ const Room = ({ room }) => {
 
 const Rooms = () => {
   const { rooms } = useContext(ChatContext)
-
-  const RoomsList = (
+  const RoomsList = rooms.length > 0 && (
     <ul className={styles.rooms}>
       {rooms && rooms.map(room => <Room key={room.id} room={room} />)}
     </ul>
