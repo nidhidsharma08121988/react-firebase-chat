@@ -1,0 +1,25 @@
+.roomsNavFooter {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  align-items: center;
+  padding: 0;
+  margin: 5rem 1rem;
+  background-color: var(--core-theme-color);
+}
+.createRoomButton {
+  font-size: 1rem;
+  background-color: white;
+  border-radius: var(--border-radius);
+  color: var(--core-theme-color);
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  margin: 0.7rem;
+  transition: all 0.1s ease-in;
+}
+.createRoomButton:hover {
+  box-shadow: 2px 2px 4px var(--shadow-color);
+}
