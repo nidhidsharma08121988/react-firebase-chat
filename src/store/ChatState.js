@@ -36,14 +36,18 @@ const ChatState = ({ children }) => {
   useEffect(() => {
     setUser(user)
     if (user) {
+      setUserRoomsAndMessages()
+    } else {
+      setLoggedIn(false)
+    }
+
+    async function setUserRoomsAndMessages() {
       setLoggedIn(true)
-      const rooms = getRoomsListWithIds(user)
+      const rooms = await getRoomsListWithIds(user)
       setRooms(rooms)
       const defaultSelectedRoom = rooms !== [] ? rooms[0] : []
       setSelectedRoom(defaultSelectedRoom)
-      allMessages = getMessageListWithIds()
-    } else {
-      setLoggedIn(false)
+      allMessages = await getMessageListWithIds()
     }
   }, [user])
 

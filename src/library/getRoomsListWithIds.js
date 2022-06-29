@@ -1,12 +1,7 @@
-import { getUserRoomsFromDatabase } from '../backend/getUserRoomsFromDatabase'
+import { getAllRoomsWithIdFromDatabase } from '../backend/FirebaseModule'
 
-export function getRoomsListWithIds(user) {
-  const rooms = getUserRoomsFromDatabase()
-  const roomIds = Object.keys(rooms)
-  const allRoomsList = roomIds.map(roomId => ({
-    ...rooms[roomId],
-    id: roomId,
-  }))
+export const getRoomsListWithIds = async user => {
+  const allRoomsList = await getAllRoomsWithIdFromDatabase()
   const roomsOfUser = allRoomsList.filter(room =>
     room.participants.includes(user.email)
   )
