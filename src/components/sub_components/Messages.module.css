@@ -32,3 +32,8 @@
 .messageText {
   font-size: 0.9rem;
 }
+.messageCreated {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 0.6rem;
+}
