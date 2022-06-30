@@ -1,4 +1,5 @@
 import {
+  ADD_MESSAGE,
   SET_LOGGED_IN,
   SET_MESSAGES,
   SET_ROOMS,
@@ -8,6 +9,11 @@ import {
 
 const chatReducer = (state, action) => {
   switch (action.type) {
+    case ADD_MESSAGE:
+      return {
+        ...state,
+        messages: [...state.messages, action.payload],
+      }
     case SET_LOGGED_IN:
       return {
         ...state,

@@ -6,7 +6,7 @@ import { messagesCollection } from '../../backend/FirebaseModule'
 
 const SendMessageForm = () => {
   const [text, setText] = useState('')
-  const { selectedRoom, user } = useContext(ChatContext)
+  const { selectedRoom, user, addMessage } = useContext(ChatContext)
 
   const sendMessage = async e => {
     e.preventDefault()
@@ -18,6 +18,7 @@ const SendMessageForm = () => {
     }
     //https:www.youtube.com/watch?v=s1frrNxq4js&list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb&index=5
     await addDoc(messagesCollection, message)
+    addMessage(message)
     console.log('message added')
     setText('')
   }

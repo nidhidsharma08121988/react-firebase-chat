@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../backend/FirebaseModule'
 import chatReducer from './chatReducer'
 import {
+  ADD_MESSAGE,
   SET_LOGGED_IN,
   SET_MESSAGES,
   SET_ROOMS,
@@ -77,6 +78,12 @@ const ChatState = ({ children }) => {
       payload: rooms,
     })
   }
+  const addMessage = message => {
+    dispatch({
+      type: ADD_MESSAGE,
+      payload: message,
+    })
+  }
 
   const setMessages = messages => {
     dispatch({
@@ -97,7 +104,8 @@ const ChatState = ({ children }) => {
       value={{
         ...state,
         setSelectedRoom,
-        setMessagesOfSelectedRoom: setMessagesOfSelectedRoom,
+        setMessagesOfSelectedRoom,
+        addMessage,
       }}
     >
       {children}
