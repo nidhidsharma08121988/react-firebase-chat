@@ -31,9 +31,8 @@ const Messages = () => {
 
   return (
     <ul className={styles.messagesContainer}>
-      {messages.map(message => (
-        <Message key={message.id} message={message} />
-      ))}
+      {messages.length > 0 &&
+        messages.map(message => <Message key={message.id} message={message} />)}
     </ul>
   )
 }
