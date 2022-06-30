@@ -1,7 +1,7 @@
-import { getUserMessagesFromDatabase } from '../backend/getUserMessagesFromDatabase'
+import { getAllMessagesWithIdFromDatabase } from './../backend/FirebaseModule'
 
-export function getMessageListWithIds() {
-  const messages = getUserMessagesFromDatabase()
+export const getMessageListWithIds = async () => {
+  const messages = await getAllMessagesWithIdFromDatabase()
   const messageIds = Object.keys(messages)
   const allMessagesList = messageIds.map(messageId => ({
     ...messages[messageId],
