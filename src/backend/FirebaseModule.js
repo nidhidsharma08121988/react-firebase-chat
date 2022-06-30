@@ -18,10 +18,11 @@ const firebaseApp = initializeApp(firebaseConfig)
 //very important step that keeps track of whether user is authenticated
 export const auth = getAuth(firebaseApp)
 
-const database = getFirestore()
+//src: https://www.youtube.com/watch?v=2yNyiW_41H8&list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb&index=4
+const database = getFirestore(firebaseApp)
 
-const roomsCollection = collection(database, 'rooms')
-const messagesCollection = collection(database, 'messages')
+export const roomsCollection = collection(database, 'rooms')
+export const messagesCollection = collection(database, 'messages')
 
 export const getAllRoomsWithIdFromDatabase = async () => {
   try {

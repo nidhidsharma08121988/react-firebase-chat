@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
-import { useContext } from 'react'
+import React, { useState, useContext } from 'react'
+import { addDoc } from 'firebase/firestore'
 import styles from './SendMessageForm.module.css'
 import { ChatContext } from './../../store/ChatState'
+import { messagesCollection } from '../../backend/FirebaseModule'
+
 const SendMessageForm = () => {
   const [text, setText] = useState('')
   const { selectedRoom, user } = useContext(ChatContext)
 
-  const sendMessage = e => {
+  const sendMessage = async e => {
     e.preventDefault()
     const message = {
       text: text,
@@ -14,7 +16,9 @@ const SendMessageForm = () => {
       authorEmail: user.email,
       created: Date.now(),
     }
-    console.log(message)
+    //https:www.youtube.com/watch?v=s1frrNxq4js&list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb&index=5
+    await addDoc(messagesCollection, message)
+    console.log('message added')
     setText('')
   }
   return (
