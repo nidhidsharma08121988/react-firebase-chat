@@ -37,12 +37,13 @@ const Messages = () => {
     //eslint-disable-next-line
   }, [selectedRoom])
 
+  const renderMessageList = messages.map(message => (
+    <Message key={message.id} message={message} userEmail={user.email} />
+  ))
+
   return (
     <ul className={styles.messagesContainer}>
-      {messages.length > 0 &&
-        messages.map(message => (
-          <Message key={message.id} message={message} userEmail={user.email} />
-        ))}
+      {messages.length > 0 && renderMessageList}
     </ul>
   )
 }
