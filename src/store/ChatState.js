@@ -13,8 +13,7 @@ import {
 } from './types'
 import { getRoomsListWithIds } from '../library/getRoomsListWithIds'
 import { getMessageListWithIds } from '../library/getMessagesListWithIId'
-
-let allMessages = []
+import { getMessagesForRoom } from '../library/getMessagesForRoom'
 
 const initialChatState = {
   user: null,
@@ -48,14 +47,13 @@ const ChatState = ({ children }) => {
       setRooms(rooms)
       const defaultSelectedRoom = rooms !== [] ? rooms[0] : []
       setSelectedRoom(defaultSelectedRoom)
-      allMessages = await getMessageListWithIds()
+      await setMessagesOfSelectedRoom(defaultSelectedRoom)
     }
   }, [user])
 
-  const setMessagesOfSelectedRoom = selectedRoom => {
-    const messagesOfSelectedRoom = allMessages.filter(
-      message => message.roomId === selectedRoom.id
-    )
+  const setMessagesOfSelectedRoom = async selectedRoom => {
+    const allMessages = await getMessageListWithIds()
+    const messagesOfSelectedRoom = getMessagesForRoom(allMessages, selectedRoom)
     setMessages(messagesOfSelectedRoom)
   }
 
@@ -65,6 +63,7 @@ const ChatState = ({ children }) => {
       payload: isLoggedIn,
     })
   }
+
   const setUser = user => {
     dispatch({
       type: SET_USER,
@@ -78,6 +77,7 @@ const ChatState = ({ children }) => {
       payload: rooms,
     })
   }
+
   const addMessage = message => {
     dispatch({
       type: ADD_MESSAGE,
