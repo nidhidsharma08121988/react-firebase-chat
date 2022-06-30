@@ -38,6 +38,7 @@ export const getAllRoomsWithIdFromDatabase = async () => {
     return myRooms
   } catch (error) {
     console.log(error.message)
+    return []
   }
 }
 
