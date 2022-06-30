@@ -45,14 +45,14 @@ export const getAllMessagesWithIdFromDatabase = async () => {
   try {
     const snapshot = await getDocs(messagesCollection)
     const docs = snapshot.docs
-    let myRooms = []
+    let myMessages = []
     docs.forEach(doc => {
-      myRooms.push({
+      myMessages.push({
         ...doc.data(),
         id: doc.id,
       })
     })
-    return myRooms
+    return myMessages
   } catch (error) {
     console.log(error.message)
     return []
