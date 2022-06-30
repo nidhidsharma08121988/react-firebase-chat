@@ -54,6 +54,7 @@ const ChatState = ({ children }) => {
   const setMessagesOfSelectedRoom = async selectedRoom => {
     const allMessages = await getMessageListWithIds()
     const messagesOfSelectedRoom = getMessagesForRoom(allMessages, selectedRoom)
+    // sort in ascending order of date
     messagesOfSelectedRoom.sort((m1, m2) => {
       return m1.created - m2.created
     })

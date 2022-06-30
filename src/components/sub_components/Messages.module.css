@@ -4,12 +4,14 @@
   align-items: flex-start;
   position: fixed;
   width: 70%;
-  height: 70%;
+  height: 72%;
   margin: 0;
   padding: 0.5rem 1rem;
   list-style: none;
   align-self: top;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-bottom: 0.5px solid var(--shadow-color);
 }
 
 .messageContainer,
