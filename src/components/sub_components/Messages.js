@@ -4,9 +4,14 @@ import { ChatContext } from '../../store/ChatState'
 import moment from 'moment'
 import styles from './Messages.module.css'
 
-const Message = ({ message }) => {
+const Message = ({ message, userEmail }) => {
+  const setStyleForMessage =
+    message.authorEmail === userEmail
+      ? styles.userMessageContainer
+      : styles.messageContainer
+
   return (
-    <li className={styles.messageContainer}>
+    <li className={setStyleForMessage}>
       <div className={styles.messageHeader}>
         <div>{message.authorEmail}</div>
         <div>
@@ -21,18 +26,23 @@ const Message = ({ message }) => {
   )
 }
 const Messages = () => {
-  const { selectedRoom, setMessagesOfSelectedRoom, messages } =
+  const { selectedRoom, setMessagesOfSelectedRoom, messages, user } =
     useContext(ChatContext)
 
   useEffect(() => {
-    setMessagesOfSelectedRoom(selectedRoom)
+    ;(async () => {
+      await setMessagesOfSelectedRoom(selectedRoom)
+    })()
+
     //eslint-disable-next-line
   }, [selectedRoom])
 
   return (
     <ul className={styles.messagesContainer}>
       {messages.length > 0 &&
-        messages.map(message => <Message key={message.id} message={message} />)}
+        messages.map(message => (
+          <Message key={message.id} message={message} userEmail={user.email} />
+        ))}
     </ul>
   )
 }
