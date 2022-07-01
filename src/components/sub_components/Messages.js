@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { ChatContext } from '../../store/ChatState'
 import moment from 'moment'
 import styles from './Messages.module.css'
+import { useRef } from 'react'
 
 const Message = ({ message, userEmail }) => {
   const setStyleForMessage =
@@ -10,8 +11,14 @@ const Message = ({ message, userEmail }) => {
       ? styles.userMessageContainer
       : styles.messageContainer
 
+  const myRef = useRef()
+
+  useEffect(() => {
+    myRef.current.scrollIntoView('smooth')
+  }, [message])
+
   return (
-    <li className={setStyleForMessage}>
+    <li ref={myRef} className={setStyleForMessage}>
       <div className={styles.messageHeader}>
         <div>{message.authorEmail}</div>
         <div>
