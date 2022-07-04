@@ -5,13 +5,12 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Messages from './sub_components/Messages'
 import SendMessageForm from './sub_components/SendMessageForm'
-import { CreateRoomsButton } from './sub_components/CreateRoomsButton'
+import { CreateRoomSection } from './sub_components/CreateRoomSection'
 
 const showRooms = (
   <div className={styles.chatRoomContainer}>
     <div className={styles.chatRoomsNav}>
       <Rooms />
-      <CreateRoomsButton />
     </div>
     <div className={styles.chatArea}>
       <Messages />
