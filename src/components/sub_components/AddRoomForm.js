@@ -8,6 +8,9 @@ const AddRoomForm = ({ hideForm }) => {
   const [title, setTitle] = useState('')
   const { addNewRoom, user } = useContext(ChatContext)
 
+  const goBack = () => {
+    hideForm()
+  }
   const submit = async e => {
     e.preventDefault()
     const room = {
@@ -24,8 +27,6 @@ const AddRoomForm = ({ hideForm }) => {
       })
       setTitle('')
     }
-
-    hideForm()
   }
 
   return (
@@ -37,9 +38,14 @@ const AddRoomForm = ({ hideForm }) => {
         onChange={e => setTitle(e.target.value)}
         required
       />
-      <button className={styles.submit} type='submit'>
-        Add room
-      </button>
+      <div className={styles.buttonsContainer}>
+        <button className={styles.goBack} onClick={goBack}>
+          Back
+        </button>
+        <button className={styles.submit} type='submit'>
+          Add room
+        </button>
+      </div>
     </form>
   )
 }

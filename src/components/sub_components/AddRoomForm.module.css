@@ -9,23 +9,18 @@
   align-items: stretch;
   overflow-x: auto;
 }
-
-.participantFormContainer {
+.title {
+  border-radius: var(--border-radius);
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+}
+.buttonsContainer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-.title,
-.email,
-.addParticipant,
-.submit {
-  margin: 0.5rem 0;
-  padding: 0.5rem;
-  border-radius: var(--border-radius);
-  outline: none;
-  border: none;
-}
+.goBack,
 .submit {
   font-size: 1rem;
   background-color: white;
@@ -33,7 +28,14 @@
   border: none;
   cursor: pointer;
   transition: all 0.1s ease-in;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  outline: none;
+  border: none;
 }
+
+.goBack:hover,
 .submit:hover {
   box-shadow: 2px 2px 4px var(--shadow-color);
 }
