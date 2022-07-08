@@ -5,6 +5,7 @@ import { auth } from '../backend/FirebaseModule'
 import chatReducer from './chatReducer'
 import {
   ADD_MESSAGE,
+  ADD_ROOM,
   SET_LOGGED_IN,
   SET_MESSAGES,
   SET_ROOMS,
@@ -61,6 +62,13 @@ const ChatState = ({ children }) => {
     setMessages(messagesOfSelectedRoom)
   }
 
+  const addNewRoom = room => {
+    dispatch({
+      type: ADD_ROOM,
+      payload: room,
+    })
+  }
+
   const setLoggedIn = isLoggedIn => {
     dispatch({
       type: SET_LOGGED_IN,
@@ -110,6 +118,7 @@ const ChatState = ({ children }) => {
         setSelectedRoom,
         setMessagesOfSelectedRoom,
         addMessage,
+        addNewRoom,
       }}
     >
       {children}
