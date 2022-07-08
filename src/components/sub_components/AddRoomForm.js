@@ -6,13 +6,14 @@ import styles from './AddRoomForm.module.css'
 
 const AddRoomForm = ({ hideForm }) => {
   const [title, setTitle] = useState('')
-  const { addNewRoom } = useContext(ChatContext)
+  const { addNewRoom, user } = useContext(ChatContext)
 
   const submit = async e => {
     e.preventDefault()
     const room = {
       title,
-      participants: [],
+      participants: [user.email],
+      creatorEmail: user.email,
     }
 
     const newRoom = await addNewRoomToRoomCollection(room)
