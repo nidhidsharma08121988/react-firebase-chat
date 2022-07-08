@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { addDoc } from 'firebase/firestore'
 import styles from './SendMessageForm.module.css'
 import { ChatContext } from './../../store/ChatState'
-import { messagesCollection } from '../../backend/FirebaseModule'
+import { addNewMessageToMessageCollection } from '../../backend/FirebaseModule'
 
 const SendMessageForm = () => {
   const [text, setText] = useState('')
@@ -16,8 +16,8 @@ const SendMessageForm = () => {
       authorEmail: user.email,
       created: Date.now(),
     }
-    //https:www.youtube.com/watch?v=s1frrNxq4js&list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb&index=5
-    const returnMessage = await addDoc(messagesCollection, message)
+    
+    const returnMessage = await addNewMessageToMessageCollection(message)
     addMessage({ ...message, id: returnMessage.id })
     setText('')
   }

@@ -1,7 +1,7 @@
 //firebase SDK
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
-import { getFirestore, collection, getDocs } from 'firebase/firestore'
+import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAWn5a6SUM0dDrrjOE18eYsa6kzr3S9EbA',
@@ -57,5 +57,16 @@ export const getAllMessagesWithIdFromDatabase = async () => {
   } catch (error) {
     console.log(error.message)
     return []
+  }
+}
+
+//https:www.youtube.com/watch?v=s1frrNxq4js&list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb&index=5
+export const addNewMessageToMessageCollection = async message => {
+  try {
+    const newMessage = await addDoc(messagesCollection, message)
+    return newMessage
+  } catch (error) {
+    console.log(error.message)
+    return {}
   }
 }
