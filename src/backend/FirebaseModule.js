@@ -74,7 +74,11 @@ export const addNewMessageToMessageCollection = async message => {
 export const addNewRoomToRoomCollection = async room => {
   try {
     const newRoom = await addDoc(roomsCollection, room)
-    return newRoom
+    const returnedRoom = {
+      ...room,
+      id: newRoom.id,
+    }
+    return returnedRoom
   } catch (error) {
     console.log(error.message)
     return {}
