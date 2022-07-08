@@ -7,14 +7,14 @@ import Rooms from './Rooms'
 
 import Messages from './sub_components/Messages'
 import SendMessageForm from './sub_components/SendMessageForm'
-import { CreateRoomSection } from './sub_components/CreateRoomSection'
+import { AddRoomSection } from './sub_components/AddRoomSection'
 
 const ShowRooms = () => {
   return (
     <div className={styles.chatRoomContainer}>
       <div className={styles.chatRoomsNav}>
         <Rooms />
-        <CreateRoomSection />
+        <AddRoomSection />
       </div>
       <div className={styles.chatArea}>
         <Messages />

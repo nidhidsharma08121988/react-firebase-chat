@@ -1,0 +1,39 @@
+.createRoomFormContainer {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: stretch;
+  overflow-x: auto;
+}
+
+.participantFormContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title,
+.email,
+.addParticipant,
+.submit {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  outline: none;
+  border: none;
+}
+.submit {
+  font-size: 1rem;
+  background-color: white;
+  color: var(--core-theme-color);
+  border: none;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+.submit:hover {
+  box-shadow: 2px 2px 4px var(--shadow-color);
+}
