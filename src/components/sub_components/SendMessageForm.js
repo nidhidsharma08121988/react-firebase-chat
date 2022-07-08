@@ -16,10 +16,12 @@ const SendMessageForm = () => {
       authorEmail: user.email,
       created: Date.now(),
     }
-    
-    const returnMessage = await addNewMessageToMessageCollection(message)
-    addMessage({ ...message, id: returnMessage.id })
-    setText('')
+
+    const newMessage = await addNewMessageToMessageCollection(message)
+    if (Object.keys(newMessage).length !== 0) {
+      addMessage({ ...message, id: newMessage.id })
+      setText('')
+    }
   }
   return (
     <form className={styles.messageFormContainer} onSubmit={sendMessage}>
