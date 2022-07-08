@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react'
-import { addDoc } from 'firebase/firestore'
 import styles from './SendMessageForm.module.css'
 import { ChatContext } from './../../store/ChatState'
 import { addNewMessageToMessageCollection } from '../../backend/FirebaseModule'
