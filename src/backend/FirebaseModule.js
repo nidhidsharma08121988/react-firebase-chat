@@ -70,3 +70,13 @@ export const addNewMessageToMessageCollection = async message => {
     return {}
   }
 }
+
+export const addNewRoomToRoomCollection = async room => {
+  try {
+    const newRoom = await addDoc(roomsCollection, room)
+    return newRoom
+  } catch (error) {
+    console.log(error.message)
+    return {}
+  }
+}
