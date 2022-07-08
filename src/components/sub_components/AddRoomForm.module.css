@@ -9,12 +9,14 @@
   align-items: stretch;
   overflow-x: auto;
 }
+
 .title {
   border-radius: var(--border-radius);
   border: none;
   outline: none;
   padding: 0.5rem;
 }
+
 .buttonsContainer {
   display: flex;
   justify-content: space-between;
@@ -33,6 +35,7 @@
   border-radius: var(--border-radius);
   outline: none;
   border: none;
+  width: 40%;
 }
 
 .goBack:hover,
