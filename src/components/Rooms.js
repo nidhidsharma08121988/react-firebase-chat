@@ -6,14 +6,17 @@ import styles from './Rooms.module.css'
 
 const Room = ({ room }) => {
   const { selectedRoom, setSelectedRoom } = useContext(ChatContext)
-
+  const handleRenameRoom = () => {}
   const isSelected = selectedRoom && selectedRoom.id === room.id
   return (
     <li
       className={isSelected ? styles.selectedRoom : styles.room}
       onClick={() => setSelectedRoom(room)}
     >
-      {room.title}
+      <div>{room.title}</div>
+      <div>
+        <i className='fas fa-edit' onClick={handleRenameRoom}></i>
+      </div>
     </li>
   )
 }

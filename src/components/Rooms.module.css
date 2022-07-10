@@ -17,6 +17,9 @@
   padding: 0.5rem;
   cursor: pointer;
   transition: all 0.1s ease-in;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .room {
   background-color: var(--core-theme-color);
