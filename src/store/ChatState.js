@@ -61,6 +61,17 @@ const ChatState = ({ children }) => {
     setMessages(messagesOfSelectedRoom)
   }
 
+  const updateRoom = (roomId, updatedPropertiesObject) => {
+    const oldRoom = state.rooms.filter(room => room.id === roomId)[0]
+    const updatedRoom = {
+      ...oldRoom,
+      ...updatedPropertiesObject,
+    }
+    const remainingRooms = state.rooms.filter(room => room.id !== roomId)
+    const updatedRoomsList = [...remainingRooms, updatedRoom]
+    console.log(updatedRoomsList)
+  }
+
   const addNewRoom = room => {
     const updateListOfRooms = [...state.rooms, room]
     setRooms(updateListOfRooms)
@@ -116,6 +127,7 @@ const ChatState = ({ children }) => {
         setMessagesOfSelectedRoom,
         addMessage,
         addNewRoom,
+        updateRoom,
       }}
     >
       {children}
