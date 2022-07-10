@@ -49,6 +49,7 @@ const ChatState = ({ children }) => {
       setSelectedRoom(defaultSelectedRoom)
       await setMessagesOfSelectedRoom(defaultSelectedRoom)
     }
+    //eslint-disable-next-line
   }, [user])
 
   const setMessagesOfSelectedRoom = async selectedRoom => {
