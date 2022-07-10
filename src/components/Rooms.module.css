@@ -15,7 +15,6 @@
   list-style: none;
   margin-bottom: 0;
   padding: 0.5rem;
-  cursor: pointer;
   transition: all 0.1s ease-in;
   display: flex;
   justify-content: space-between;
@@ -29,4 +28,19 @@
 }
 .room:hover {
   background-color: var(--secondary-color);
+}
+.titleInput {
+  width: 90%;
+  margin-bottom: 0;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  outline: none;
+  border: none;
+}
+.icon {
+  font-size: small;
+}
+.icon:hover {
+  text-shadow: 1px 1px 3px white;
+  cursor: pointer;
 }
