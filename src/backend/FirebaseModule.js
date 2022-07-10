@@ -1,7 +1,14 @@
 //firebase SDK
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
-import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore'
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+  doc,
+  updateDoc,
+} from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAWn5a6SUM0dDrrjOE18eYsa6kzr3S9EbA',
@@ -82,5 +89,15 @@ export const addNewRoomToRoomCollection = async room => {
   } catch (error) {
     console.log(error.message)
     return {}
+  }
+}
+
+export const updateRoomCollection = async (roomId, updatedPropertiesObject) => {
+  const roomDocRef = doc(database, 'rooms', roomId)
+  try {
+    await updateDoc(roomDocRef, updatedPropertiesObject)
+    console.log('successfully updated room', roomId)
+  } catch (error) {
+    console.log(error.message)
   }
 }
