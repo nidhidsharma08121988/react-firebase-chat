@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useContext } from 'react'
 import { updateRoomCollection } from '../backend/FirebaseModule'
 import { ChatContext } from '../store/ChatState'
@@ -10,10 +10,15 @@ const Room = ({ room }) => {
   const [isEditing, setIsEditing] = useState(false)
   const [editTitle, setEditTitle] = useState(room.title)
 
+  useEffect(() => {
+    setIsEditing(false)
+  }, [selectedRoom])
+
   const showEditMode = () => {
     setIsEditing(true)
   }
-  const handleEnterKeyWhenRenaming = e => {
+
+  const renameAndHideInputBox = e => {
     if (e.key === 'Enter') {
       const updatedProperties = {
         title: editTitle,
@@ -32,15 +37,19 @@ const Room = ({ room }) => {
     >
       {isEditing ? (
         <input
+          className={styles.titleInput}
           value={editTitle}
           onChange={e => setEditTitle(e.target.value)}
-          onKeyDown={handleEnterKeyWhenRenaming}
+          onKeyDown={renameAndHideInputBox}
         ></input>
       ) : (
         <div>{room.title}</div>
       )}
       <div>
-        <i className='fas fa-edit' onClick={showEditMode}></i>
+        <i
+          className={`fa-solid fa-pen ${styles.icon}`}
+          onClick={showEditMode}
+        ></i>
       </div>
     </li>
   )
