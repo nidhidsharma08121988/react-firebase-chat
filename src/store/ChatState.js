@@ -69,7 +69,7 @@ const ChatState = ({ children }) => {
     }
     const remainingRooms = state.rooms.filter(room => room.id !== roomId)
     const updatedRoomsList = [...remainingRooms, updatedRoom]
-    console.log(updatedRoomsList)
+    setRooms(updatedRoomsList)
   }
 
   const addNewRoom = room => {
