@@ -8,6 +8,7 @@ import Rooms from './Rooms'
 import Messages from './sub_components/Messages'
 import SendMessageForm from './sub_components/SendMessageForm'
 import { AddRoomSection } from './sub_components/AddRoomSection'
+import { AddParticipantsForm } from './sub_components/AddParticipantsForm'
 
 const ShowRooms = () => {
   return (
@@ -17,8 +18,13 @@ const ShowRooms = () => {
         <AddRoomSection />
       </div>
       <div className={styles.chatArea}>
-        <Messages />
-        <SendMessageForm />
+        <div className={styles.addParticipantsFormContainer}>
+          <AddParticipantsForm />
+        </div>
+        <div>
+          <Messages />
+          <SendMessageForm />
+        </div>
       </div>
     </div>
   )
