@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useContext } from 'react'
-import { updateRoomCollection } from '../backend/FirebaseModule'
-import { ChatContext } from '../store/ChatState'
+import { updateRoomCollection } from '../../backend/FirebaseModule'
+import { ChatContext } from '../../store/ChatState'
 // import Room from './Room'
 import styles from './Rooms.module.css'
 

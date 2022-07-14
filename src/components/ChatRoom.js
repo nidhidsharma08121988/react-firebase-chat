@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
 import styles from './ChatRoom.module.css'
-import Rooms from './Rooms'
+import Rooms from './sub_components/Rooms'
 
 import Messages from './sub_components/Messages'
 import SendMessageForm from './sub_components/SendMessageForm'
@@ -12,16 +12,16 @@ import { AddParticipantsForm } from './sub_components/AddParticipantsForm'
 
 const ShowRooms = () => {
   return (
-    <div className={styles.chatRoomContainer}>
-      <div className={styles.chatRoomsNav}>
-        <Rooms />
-        <AddRoomSection />
+    <div className={styles.participantsAndChatRoomContainer}>
+      <div className={styles.addParticipantsFormContainer}>
+        <AddParticipantsForm />
       </div>
-      <div className={styles.chatArea}>
-        <div className={styles.addParticipantsFormContainer}>
-          <AddParticipantsForm />
+      <div className={styles.chatRoomContainer}>
+        <div className={styles.chatRoomsNav}>
+          <Rooms />
+          <AddRoomSection />
         </div>
-        <div>
+        <div className={styles.chatArea}>
           <Messages />
           <SendMessageForm />
         </div>
