@@ -1,3 +1,18 @@
+.participantsAndChatRoomContainer {
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+.addParticipantsFormContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--core-theme-color);
+  color: white;
+  padding: 0.5rem;
+}
 .chatRoomContainer {
   display: flex;
   align-items: flex-start;
@@ -9,8 +24,8 @@
   flex-direction: column;
   position: fixed;
   left: 0;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   min-height: 99%;
   height: 99%;
   width: 30%;
@@ -63,12 +78,6 @@
 .submit:hover {
   opacity: 0.6;
   box-shadow: 1px 2px 1px var(--shadow-color);
-}
-.addParticipantsFormContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--core-theme-color);
 }
 
 @media screen and (max-width: 650px) {

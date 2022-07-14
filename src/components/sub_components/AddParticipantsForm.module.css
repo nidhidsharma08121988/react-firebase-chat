@@ -1,0 +1,22 @@
+.addParticipantsContainer,
+.addParticipantsForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 2.4rem;
+  margin: 0;
+  padding: 0.5rem;
+  font-weight: bolder;
+}
+
+.participantList {
+  resize: none;
+  width: auto;
+  margin: 0.5rem;
+  height: 2rem;
+  padding: 0.8rem;
+  border-radius: var(--border-radius);
+  overflow-y: auto;
+  outline: none;
+  border: none;
+}
