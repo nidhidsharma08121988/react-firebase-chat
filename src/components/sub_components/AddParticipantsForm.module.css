@@ -9,7 +9,7 @@
   font-weight: bolder;
 }
 
-.participantList {
+.participantInput {
   resize: none;
   width: auto;
   margin: 0.5rem;
@@ -19,4 +19,10 @@
   overflow-y: auto;
   outline: none;
   border: none;
+}
+.saveParticipant {
+  font-size: 0.5rem;
+  margin: 0.3rem;
+  padding: 0.3rem;
+  color: white;
 }
