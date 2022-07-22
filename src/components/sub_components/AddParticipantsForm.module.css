@@ -11,6 +11,10 @@
 .displayParticipant {
   font-size: 0.5rem;
   font-weight: 200;
+  overflow: hidden;
+}
+.displayParticipant::after {
+  content: '...';
 }
 .participantInput {
   resize: none;
