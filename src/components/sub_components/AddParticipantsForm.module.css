@@ -8,7 +8,10 @@
   padding: 0.5rem;
   font-weight: bolder;
 }
-
+.displayParticipant {
+  font-size: 0.5rem;
+  font-weight: 200;
+}
 .participantInput {
   resize: none;
   width: auto;
