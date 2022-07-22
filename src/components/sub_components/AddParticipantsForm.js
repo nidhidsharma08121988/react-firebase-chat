@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import styles from './AddParticipantsForm.module.css'
 import { ChatContext } from './../../store/ChatState'
 import { updateRoomCollection } from '../../backend/FirebaseModule'
@@ -6,10 +6,14 @@ import { updateRoomCollection } from '../../backend/FirebaseModule'
 export const AddParticipantsForm = () => {
   const { selectedRoom, updateRoom } = useContext(ChatContext)
   const [participant, setParticipant] = useState('')
+  const [participants, setParticipants] = useState('')
+  useEffect(() => {
+    setParticipants(selectedRoom.participants.join(', '))
+  }, [selectedRoom])
 
   const handleComma = e => {
     if (e.code === 'Enter') {
-      e.preventDefault() //will not submit or click other buttons
+      e.preventDefault()
       const participantEmail = e.target.value
       const newParticipantsList = [
         ...selectedRoom.participants,
@@ -20,6 +24,8 @@ export const AddParticipantsForm = () => {
       }
       updateRoomCollection(selectedRoom.id, updatedProperties)
       updateRoom(selectedRoom.id, updatedProperties)
+
+      setParticipants(selectedRoom.participants.join(', '))
       setParticipant('')
     }
   }
@@ -30,7 +36,10 @@ export const AddParticipantsForm = () => {
 
   return (
     <div className={styles.addParticipantsContainer}>
-      <div className={styles.title}>{selectedRoom.title}</div>
+      <div>
+        <div className={styles.title}>{selectedRoom.title}</div>
+        <div className={styles.displayParticipant}>{participants}</div>
+      </div>
       <div className={styles.addParticipantsForm}>
         <input
           className={styles.participantInput}
